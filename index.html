@@ -1,18 +1,57 @@
 
 <!DOCTYPE html>
 <!-- saved from url=(0055)http://weareminky.com/share/ms/docs/conceptual/example/ -->
-<html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="toc" content="TOC.json" />
-	<meta name="breadcrumb" content="/CapsToOpsTest_EMS/v1/toc.json" />
-    <title>Microsoft Intune App SDK</title>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="ms.pagetype" content="conceptual" />
+    <meta name="ms.sitename" content="DOCS" />
+    <meta name="layout" content="Conceptual" />
+<meta name="breadcrumb_path" content="/CapsToOpsTest_EMS/v1/toc.json" />
+<meta name="_docfxVersion" content="1.4.1.0" />
+<meta name="version" content="0" />
+<meta name="ms.locale" content="en-us" />
+<meta name="locale" content="en-us" />
+<meta name="open_to_public_contributors" content="True" />
+<meta name="title" content="Microsoft Advanced Threat Analytics" />
+<meta name="rawTitle" content="&lt;h1 id=&quot;microsoft-advanced-threat-analytics&quot;&gt;Microsoft Advanced Threat Analytics&lt;/h1&gt;" />
+<meta name="ms.custom" content="[
+  &quot;ATA&quot;
+]" />
+<meta name="ms.tgt_pltfrm" content="na" />
+<meta name="ms.assetid" content="a315cf03-c5a3-4ecb-a0f8-4d3e322e6ad1" />
+<meta name="description" content="na" />
+<meta name="ms.author" content="5f6e9ed0-302d-496f-873c-7a2b94e50410" />
+<meta name="keywords" content="na" />
+<meta name="search" content="na" />
+<meta name="ms.topic" content="article" />
+<meta name="pagetitle" content="Microsoft Advanced Threat Analytics" />
+<meta name="ms.date" content="na" />
+<meta name="ms.technology" content="[
+  &quot;security&quot;
+]" />
+<meta name="ms.prod" content="identity-ata" />
+<meta name="original_content_git_url" content="https://github.com/kimizhu/CapsToOpsTest_ATA/blob/live/CapsToOpsTest_ATA/v1/Topic/Microsoft_Advanced_Threat_Analytics.md" />
+<meta name="content_git_url" content="https://github.com/kimizhu/CapsToOpsTest_ATA/blob/live/CapsToOpsTest_ATA/v1/Topic/Microsoft_Advanced_Threat_Analytics.md" />
+<meta name="wordCount" content="540" />
+<meta name="toc_asset_id" content="Topic/TOC.json" />
+<meta name="toc_rel" content="TOC.json" />
+
+<meta name="og:url" content="http://jialinxin.github.io/" />
+<meta name="og:title" content="Microsoft Advanced Threat Analytics" />
+<meta name="og:description" content="Microsoft Advanced Threat Analytics (ATA) is an on-premises product that helps IT security professionals protect their enterprise from advanced targeted attacks by automatically analyzing, learning, and identifying normal and abnormal behavior among entities (users, devices, and resources).  ATA also helps identify known malicious attacks, security issues and risks using world-class, cutting edge research in behavioral analytics to help enterprises identify security breaches before they cause damage." />
+<meta name="og:image" content="http://docspilot.azurewebsites.net/CapsToOpsTest_ATA/v1/_themes/images/logo-ms-dark.png" />
+
+    <title>Microsoft Advanced Threat Analytics</title>
     <link rel="stylesheet" href="../_themes/css/conceptual.css">
     <script src="../_themes/javascript/jquery-2.1.4.min.js"></script>
     <script src="../_themes/javascript/docs.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://openfeedback.blob.core.windows.net/openfeedback/openfeedback.js"></script>
+    <script src="https://cdn.livefyre.com/Livefyre.js"></script>
+  </head>
   <body>
-
     <header id="header" ms.pgarea="header">
       <div id="common-nav-placeholder">
         <div class="container">
@@ -33,7 +72,7 @@
           <li class="menu-theme">
             <div class="dropdown-container">
               <div class="dropdown">
-                <select>
+                <select id="theme-selector">
                   <option value="">Light</option>
                   <option value="theme-night">Dark</option>
                   <option value="theme-hot-dog">Hot Dog</option>
@@ -42,50 +81,40 @@
             </div>
           </li>
           <li><a href="" class="button button-small"><span class="icon icon-comments"></span> Comments</a></li>
-          <li><a href="https://github.com/kimizhu/CapsToOpsTest_MicrosoftInTune/blob/live/CapsToOpsTest_MicrosoftInTune/v1/Topic/Microsoft_Intune_App_SDK.md" class="button button-small"><span class="icon icon-edit"></span> Edit</a></li>
-          <li><a href="" class="button button-small"><span class="icon icon-feedback"></span> Feedback</a></li>
+          <li><a href="https://github.com/kimizhu/CapsToOpsTest_ATA/blob/live/CapsToOpsTest_ATA/v1/Topic/Microsoft_Advanced_Threat_Analytics.md" class="button button-small"><span class="icon icon-edit"></span> Edit</a></li>
           <li><a href="#" class="button button-small sharebutton"><span class="icon icon-share"></span> Share</a></li>
-		  <div class="share-container">
-			<li><a href="" class="share-twitter"><i class="fa fa-fw">&#xf099</i> Twitter</a></li>
-			<li><a href="" class="share-facebook"><i class="fa fa-fw">&#xf09a</i> Facebook</a></li>
-			<!--<li><a href="" class="share-slack"><i class="fa fa-fw">&#xf198</i> Slack</a></li>-->
-		  </div>
+          <div class="share-container">
+            <li><a href="" class="share-twitter"><i class="fa fa-fw">&#xf099</i> Twitter</a></li>
+            <li><a href="" class="share-facebook"><i class="fa fa-fw">&#xf09a</i> Facebook</a></li>
+            <!--<li><a href="" class="share-slack"><i class="fa fa-fw">&#xf198</i> Slack</a></li>-->
+          </div>
         </ol>
 
         <div id="menu-expand">
           <h6>+ Options</h6>
         </div>
       </aside>
-	  
-	  <div id="toc" ms.cmpgrp="left toc">
-	    <nav id="sidebar"></nav>
-	  </div>
       
-	  <div id="menu-nav" class="dropdown-container">
-        <div class="dropdown dropdown-full">
+      <div id="toc" ms.cmpgrp="left toc">
+        <nav id="sidebar"></nav>
+      </div>
+      
+      <div id="menu-nav" class="dropdown-container">
+        <div class="dropdown dropdown-full mobilenavi">
           <select>
-            <optgroup label="Introduction">
-              <option value="problems-azure-rms-solves">Problems Azure RMS Solves</option>
-              <option value="azure-rms-in-action">Azure RMS in Action</option>
-              <option value="how-azure-rms-works">How Azure RMS Works</option>
-            </optgroup>
-            <optgroup label="And...">
-              <option value="so">So</option>
-              <option value="on">On</option>
-            </optgroup>
           </select>
         </div>
       </div>
 
       <article id="main">
-	  	  <h1>Microsoft Intune App SDK</h1>
+        <h1>Microsoft Advanced Threat Analytics</h1>
         <div id="metadata" ms.cmpgrp="page info">
           <a href="" class="avatar"><img src="https://github.com/kimizhu.png" alt="Author Name"></a>
           <div class="info">
             <span class="name"><a href="https://github.com/kimizhu">jasoz</a></span>
             <div class="meta">
-              <time datetime="" class="date">1/19/2016</time>
-              <time datetime="" class="reading-time">0 min</time>
+              <time datetime="" class="date">1/4/2016</time>
+              <time datetime="" class="reading-time">2 min</time>
               <ul class="contributors">
                 
               </ul>
@@ -97,27 +126,90 @@
           <h5>In this article</h5>
         </aside>
 
-    	<div><div class="content">
-<p>The Microsoft Intune App SDK is available for both the iOS and Android platform, and enables mobile app management features with Microsoft Intune.</p>
-<h2 id="documentation">Documentation</h2>
-<p>Learn more about the Microsoft Intune App SDK with the following articles:</p>
+        <div><div class="content">
+<p>Microsoft Advanced Threat Analytics (ATA) is an on-premises product that helps IT security professionals protect their enterprise from advanced targeted attacks by automatically analyzing, learning, and identifying normal and abnormal behavior among entities (users, devices, and resources).  ATA also helps identify known malicious attacks, security issues and risks using world-class, cutting edge research in behavioral analytics to help enterprises identify security breaches before they cause damage.</p>
+<p>ATA runs in the background and automatically analyzes, learns, and identifies normal behavior on your network, alerting you to possible security concerns, including:</p>
 <ul>
-<li><p><a href="Overview_of_the_Microsoft_Intune_App_SDK.html">Overview of the Microsoft Intune App SDK</a></p>
+<li><p><strong>Reconnaissance and Brute Force Suspicious Activities:</strong></p>
+<ul>
+<li><p>Reconnaissance using DNS</p>
+<p> Use of various tools to interact with DNS servers and extract information about your organizations&#39;s servers, including IP addresses, server names and functions. This type of attack is usually a preliminary step in which the attackers gain information about your network infrastructure</p>
 </li>
-<li><p><a href="Getting_Started_With_the_Microsoft_Intune_App_SDK.html">Getting Started With the Microsoft Intune App SDK</a></p>
+<li><p>Reconnaissance using Account Enumeration</p>
+<p> Use of tools that use LDAP to scan your Active Directory accounts, extracting a list user names, access rights and often job roles which can provide critical information about what type of access users may have.</p>
 </li>
-<li><p><a href="Microsoft_Intune_App_SDK_Frequently_Asked_Questions.html">Microsoft Intune App SDK Frequently Asked Questions</a></p>
-</li>
-<li><p><a href="Microsoft_Intune_App_SDK_for_iOS_Developer_Guide.html">Microsoft Intune App SDK for iOS Developer Guide</a></p>
-</li>
-<li><p><a href="Microsoft_Intune_App_SDK_for_Android_Developer_Guide.html">Microsoft Intune App SDK for Android Developer Guide</a></p>
+<li><p>Brute-force</p>
+<p> Hackers use using brute-force attacks try to access user accounts by trying as may password values as possible (often using complex algorithms to try as many values as a system allows). Kerberos brute-force password-cracking attacks exploit the Kerberos protocol pre-authentication feature by attacking target the encrypted timestamp that&#39;s embedded in the Kerberos preauthentication data to derive user passwords.</p>
 </li>
 </ul>
+</li>
+<li><p><strong>Identity Theft Suspicious Activities</strong>:</p>
+<ul>
+<li><p>Pass the ticket</p>
+<p> In pass the ticket attacks, attackers obtain a valid Kerberos ticket from one machine of a recently logged-in user and use it to authenticate to another server.</p>
+</li>
+<li><p>Pass the hash</p>
+<p> In pass the hash attacks, hackers steal the hash of user names and passwords, which are sometimes passed between Windows systems, and use them to authenticate to remote servers or services.</p>
+</li>
+<li><p>Over-Pass-The-Hash</p>
+</li>
+<li><p>Skeleton Key</p>
+<p> A skeleton key attack is malware that is installed on your Active Directory domina and allows the attackers to authenticate as any user while all users continue to have regular access. This is especially hard to detect because the attacker uses multiple accounts to perform various activities that may otherwise look normal.</p>
+</li>
+<li><p>MS14-068 exploit (Forged PAC)</p>
+</li>
+<li><p>Golden Ticket</p>
+<p> In Golden Ticket attacks, hackers use pass the ticket or pass the hash to gain a valid Kerberos Golden Ticket, which is a valid TGT that is encrypted and signed by the Kerberos account for the entire domain.</p>
+</li>
+<li><p>Remote Execution</p>
+<p> An attack by a hacker which runs code remotely on your network.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Honey Token account suspicious activities</strong></p>
+</li>
+<li><p><strong>Abnormal behavior</strong>: ATA uses behavioral analytics and machine learning to uncover questionable activities and abnormal behavior such as anomalous logins, abnormal resource access, abnormal working hours, unknown threats, password sharing and lateral movement.</p>
+<ul>
+<li><p>Abnormal Behavior based on Resource access, Source Computers and Work hours (machine learning algorithm)</p>
+</li>
+<li><p>Massive object deletion</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Security issues and risks</strong>: ATA identifies known security issues, such as broken trust, weak protocols and known protocol vulnerabilities.</p>
+<ul>
+<li><p>Sensitive account exposed in plain text authentication</p>
+</li>
+<li><p>Service exposing accounts in plain text authentication</p>
+</li>
+<li><p>Broken Trust</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-following-documentation-is-available-to-learn-more-">The following documentation is available to learn more:</h2>
+<ul>
+<li><p><a href="ATA_Release_Notes.html">ATA Release Notes</a></p>
+</li>
+<li><p><a href="ATA_Architecture.html">ATA Architecture</a></p>
+</li>
+<li><p><a href="ATA_Deployment_Guide.html">ATA Deployment Guide</a></p>
+</li>
+<li><p><a href="ATA_Operations_Guide.html">ATA Operations Guide</a></p>
+</li>
+<li><p><a href="ATA_FAQ.html">ATA FAQ</a></p>
+</li>
+</ul>
+<h2 id="see-also">See Also</h2>
+<p><a href="https://social.technet.microsoft.com/Forums/security/en-US/home?forum=mata">For ATA support, check out our forum!</a></p>
 </div></div>
-		
+
       </article>
     </div>
 
+    <div id="openFeedbackContainer" class="openfeedback-container"></div>
+    <div id="comments-container" class="container"></div>
+    
     <footer id="footer" ms.pgarea="footer">
       <div class="container">
         <a href="http://www.microsoft.com/" class="logo"><img src="../_themes/images/logo-ms.png" alt="Microsoft"></a>
@@ -131,6 +223,18 @@
     </footer>
 
     <script>
+        //commenting configurations.
+        window.commentOptions = {
+            network: "microsoft-ssodemo.fyre.co",
+            siteId: "305985",
+            containerElementId: "comments-container",
+            documentIdMetaName: "ms.assetid",
+            sidenoteSelectors: "",
+            localeMetaName: "ms.locale"
+        };
+    </script>
+    
+    <script>
       $(document).ready(function () {
           // #menu-bar toggling
           $( "#menu-expand" ).click(function() {
@@ -143,6 +247,12 @@
           $( ".menu-theme" ).change(function() {
             $("body").removeClass().addClass($(".menu-theme select").val());
             $('#toc').contents().find('body').removeClass().addClass($(".menu-theme select").val());
+          });
+          
+          // mobile navi switching
+          $('.mobilenavi').change(function() {
+            var target = $('.mobilenavi select').val();
+            $(location).attr('href', target)
           });
           
           // In topic TOC
@@ -165,236 +275,47 @@
           $("aside.toc").append(ToC);
           
           // local TOC
-		  var toc = buildTOC();
-		  $('#sidebar').append(toc);
-		  
-		  // breadcrumb
-		  var breadcrumb = buildGlobalBreadcrumb('', 'conceptual');
-		  $('.breadcrumbs').append(breadcrumb);
-		  
-		  // build share url
-		  var shareLink = location.origin + location.pathname;
-		  var facebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareLink;
+          var toc = buildTOC();
+          $('#sidebar').append(toc);
+          
+          var mobileToc = buildMobileTOC();
+          $('.mobilenavi > select').empty();
+          $('.mobilenavi > select').append(mobileToc);
+          
+          // breadcrumb
+          var breadcrumb = buildGlobalBreadcrumb('', 'conceptual');
+          $('.breadcrumbs').append(breadcrumb);
+          
+          // build share url
+          var shareLink = location.origin + location.pathname;
+          var facebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareLink;
           var twitterShareUrl = "https://twitter.com/intent/tweet?original_referer=" + shareLink + "&text=" + document.title + "&tw_p=tweetbutton&url=" + shareLink;
-		  $(".share-facebook").attr("href", facebookShareUrl);
+          $(".share-facebook").attr("href", facebookShareUrl);
           $(".share-twitter").attr("href", twitterShareUrl);
 
-		  // share toggling
-		  $('body').not('.share-container').click(function() {
-		    $('.share-container').hide();
-		  });
+          // share toggling
+          $('body').not('.share-container').click(function() {
+            $('.share-container').hide();
+          });
           $('.sharebutton').click(function() {
-			$('.share-container').toggle();
-			return false;
-		  });
-		  
-		  // social share window control
-		  $('.share-container > li > a').click( function() {
-		  window.open(this.href, '',  'width=600,height=650');
-		    return false;
-	      });
+            var pos = $('.sharebutton').position();
+            $('.share-container').css('left', pos.left);
+            $('.share-container').css('top', pos.top + 36);
+            $('.share-container').toggle();
+            return false;
+          });
+          
+          // social share window control
+          $('.share-container > li > a').click( function() {
+          window.open(this.href, '',  'width=600,height=650');
+            return false;
+          });
+
+          // add alert effect to TIP/NOTE/IMPORTANT/WARNING
+          $('.TIP, .NOTE, .IMPORTANT, .WARNING').addClass('alert');
       });
     </script>
-	
     <script src="../_themes/javascript/insight.js"></script>
-</body></html>
-
-<!DOCTYPE html>
-<!-- saved from url=(0055)http://weareminky.com/share/ms/docs/conceptual/example/ -->
-<html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="toc" content="TOC.json" />
-	<meta name="breadcrumb" content="/CapsToOpsTest_EMS/v1/toc.json" />
-    <title>Microsoft Intune App SDK</title>
-    <link rel="stylesheet" href="../_themes/css/conceptual.css">
-    <script src="../_themes/javascript/jquery-2.1.4.min.js"></script>
-    <script src="../_themes/javascript/docs.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <body>
-
-    <header id="header" ms.pgarea="header">
-      <div id="common-nav-placeholder">
-        <div class="container">
-          <h3>Microsoft</h3>
-          <h5>Common Nav Placeholder</h5>
-        </div>
-      </div>
-      
-      <div id="sub-header" class="container" ms.cmpgrp="breadcrumb">
-        <ul class="breadcrumbs"></ul>
-      </div>
-    </header>
-
-    <div class="container" ms.pgarea="body">
-
-      <aside id="social" ms.cmpgrp="social">
-        <ol class="social-actions">
-          <li class="menu-theme">
-            <div class="dropdown-container">
-              <div class="dropdown">
-                <select>
-                  <option value="">Light</option>
-                  <option value="theme-night">Dark</option>
-                  <option value="theme-hot-dog">Hot Dog</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li><a href="" class="button button-small"><span class="icon icon-comments"></span> Comments</a></li>
-          <li><a href="https://github.com/kimizhu/CapsToOpsTest_MicrosoftInTune/blob/live/CapsToOpsTest_MicrosoftInTune/v1/Topic/Microsoft_Intune_App_SDK.md" class="button button-small"><span class="icon icon-edit"></span> Edit</a></li>
-          <li><a href="" class="button button-small"><span class="icon icon-feedback"></span> Feedback</a></li>
-          <li><a href="#" class="button button-small sharebutton"><span class="icon icon-share"></span> Share</a></li>
-		  <div class="share-container">
-			<li><a href="" class="share-twitter"><i class="fa fa-fw">&#xf099</i> Twitter</a></li>
-			<li><a href="" class="share-facebook"><i class="fa fa-fw">&#xf09a</i> Facebook</a></li>
-			<!--<li><a href="" class="share-slack"><i class="fa fa-fw">&#xf198</i> Slack</a></li>-->
-		  </div>
-        </ol>
-
-        <div id="menu-expand">
-          <h6>+ Options</h6>
-        </div>
-      </aside>
-	  
-	  <div id="toc" ms.cmpgrp="left toc">
-	    <nav id="sidebar"></nav>
-	  </div>
-      
-	  <div id="menu-nav" class="dropdown-container">
-        <div class="dropdown dropdown-full">
-          <select>
-            <optgroup label="Introduction">
-              <option value="problems-azure-rms-solves">Problems Azure RMS Solves</option>
-              <option value="azure-rms-in-action">Azure RMS in Action</option>
-              <option value="how-azure-rms-works">How Azure RMS Works</option>
-            </optgroup>
-            <optgroup label="And...">
-              <option value="so">So</option>
-              <option value="on">On</option>
-            </optgroup>
-          </select>
-        </div>
-      </div>
-
-      <article id="main">
-	  	  <h1>Microsoft Intune App SDK</h1>
-        <div id="metadata" ms.cmpgrp="page info">
-          <a href="" class="avatar"><img src="https://github.com/kimizhu.png" alt="Author Name"></a>
-          <div class="info">
-            <span class="name"><a href="https://github.com/kimizhu">jasoz</a></span>
-            <div class="meta">
-              <time datetime="" class="date">1/19/2016</time>
-              <time datetime="" class="reading-time">0 min</time>
-              <ul class="contributors">
-                
-              </ul>
-            </div>
-          </div> 
-        </div>
-
-        <aside class="toc" ms.cmpgrp="intopic toc">
-          <h5>In this article</h5>
-        </aside>
-
-    	<div><div class="content">
-<p>The Microsoft Intune App SDK is available for both the iOS and Android platform, and enables mobile app management features with Microsoft Intune.</p>
-<h2 id="documentation">Documentation</h2>
-<p>Learn more about the Microsoft Intune App SDK with the following articles:</p>
-<ul>
-<li><p><a href="Overview_of_the_Microsoft_Intune_App_SDK.html">Overview of the Microsoft Intune App SDK</a></p>
-</li>
-<li><p><a href="Getting_Started_With_the_Microsoft_Intune_App_SDK.html">Getting Started With the Microsoft Intune App SDK</a></p>
-</li>
-<li><p><a href="Microsoft_Intune_App_SDK_Frequently_Asked_Questions.html">Microsoft Intune App SDK Frequently Asked Questions</a></p>
-</li>
-<li><p><a href="Microsoft_Intune_App_SDK_for_iOS_Developer_Guide.html">Microsoft Intune App SDK for iOS Developer Guide</a></p>
-</li>
-<li><p><a href="Microsoft_Intune_App_SDK_for_Android_Developer_Guide.html">Microsoft Intune App SDK for Android Developer Guide</a></p>
-</li>
-</ul>
-</div></div>
-		
-      </article>
-    </div>
-
-    <footer id="footer" ms.pgarea="footer">
-      <div class="container">
-        <a href="http://www.microsoft.com/" class="logo"><img src="../_themes/images/logo-ms.png" alt="Microsoft"></a>
-        <ul class="links" ms.cmpgrp="footer link">
-          <li><a href="">Contact Us</a></li>
-          <li><a href="">Privacy Statement</a></li>
-          <li><a href="">Terms of Use</a></li>
-          <li><a href="">Trademarks</a></li>
-        </ul>
-      </div>
-    </footer>
-
-    <script>
-      $(document).ready(function () {
-          // #menu-bar toggling
-          $( "#menu-expand" ).click(function() {
-            $( ".social-actions" ).slideToggle( "fast", function() {
-              // post-animation actions
-            });
-          });
-          
-          // theme switching
-          $( ".menu-theme" ).change(function() {
-            $("body").removeClass().addClass($(".menu-theme select").val());
-            $('#toc').contents().find('body').removeClass().addClass($(".menu-theme select").val());
-          });
-          
-          // In topic TOC
-          var ToC = "<ul>";
-          $("article h2").each(function() {
-            el = $(this);
-            title = el.text();
-            link = "#" + el.attr("id");
-            newLine =
-            "<li>" +
-              "<a href='" + link + "'>" +
-                title +
-              "</a>" +
-            "</li>";
-        
-            ToC += newLine;
-          });
-          ToC += "</ul>";
-          
-          $("aside.toc").append(ToC);
-          
-          // local TOC
-		  var toc = buildTOC();
-		  $('#sidebar').append(toc);
-		  
-		  // breadcrumb
-		  var breadcrumb = buildGlobalBreadcrumb('', 'conceptual');
-		  $('.breadcrumbs').append(breadcrumb);
-		  
-		  // build share url
-		  var shareLink = location.origin + location.pathname;
-		  var facebookShareUrl = "https://www.facebook.com/sharer/sharer.php?u=" + shareLink;
-          var twitterShareUrl = "https://twitter.com/intent/tweet?original_referer=" + shareLink + "&text=" + document.title + "&tw_p=tweetbutton&url=" + shareLink;
-		  $(".share-facebook").attr("href", facebookShareUrl);
-          $(".share-twitter").attr("href", twitterShareUrl);
-
-		  // share toggling
-		  $('body').not('.share-container').click(function() {
-		    $('.share-container').hide();
-		  });
-          $('.sharebutton').click(function() {
-			$('.share-container').toggle();
-			return false;
-		  });
-		  
-		  // social share window control
-		  $('.share-container > li > a').click( function() {
-		  window.open(this.href, '',  'width=600,height=650');
-		    return false;
-	      });
-      });
-    </script>
-	
-    <script src="../_themes/javascript/insight.js"></script>
+    <script src="../_themes/javascript/rating.js"></script>
+    <script src="https://openfeedback.blob.core.windows.net/commenting/comment.js"></script>
 </body></html>
