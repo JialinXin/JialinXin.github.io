@@ -6,28 +6,26 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" media="all" href="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft-msdn/style.css"/>
-	<link rel="pingback" href="https://blogs.msdn.microsoft.com/oldnewthing/xmlrpc.php">
+	<link rel="stylesheet" type="text/css" media="all" href="https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft-technet/style.css"/>
+	<link rel="pingback" href="https://blogs.technet.microsoft.com/tangent_thoughts/xmlrpc.php">
 	<!--[if lt IE 9]>
-	<script src="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/html5.js"></script>
+	<script src="https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft/js/html5.js"></script>
 	<![endif]-->
-	<title>When I try to calculate a performance counter manually, the answer is off by a factor of 100 | The Old New Thing</title>
-		<script type="text/javascript">
-		var ajaxurl = 'https://blogs.msdn.microsoft.com/oldnewthing/wp-admin/admin-ajax.php';
-		</script>
-		<link rel="alternate" type="application/rss+xml" title="The Old New Thing &raquo; When I try to calculate a performance counter manually, the answer is off by a factor of 100 Comments Feed" href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052/feed" />
-<link rel='stylesheet' id='sfmsb-style-css'  href='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/css/style.css?ver=3.3.3' type='text/css' media='all' />
-<link rel='stylesheet' id='sfmsb-icons-css'  href='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/css/icons.css?ver=3.3.3' type='text/css' media='all' />
-<link rel='stylesheet' id='wds-ratings-css'  href='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/wds-ratings/wds-ratings.css?ver=4.1.5' type='text/css' media='all' />
+	<title>Bookmark this aka.ms/Azure/Shortcuts | Just scroll and click | Tangent Thoughts</title>
+<link rel="alternate" type="application/rss+xml" title="Tangent Thoughts &raquo; Bookmark this aka.ms/Azure/Shortcuts | Just scroll and click Comments Feed" href="https://blogs.technet.microsoft.com/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/feed/" />
+<link rel='stylesheet' id='sfmsb-style-css'  href='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/css/style.css?ver=3.3.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sfmsb-icons-css'  href='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/css/icons.css?ver=3.3.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wds-ratings-css'  href='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/plugins/wds-ratings/wds-ratings.css?ver=4.1.5' type='text/css' media='all' />
 <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
-<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/js/front-widget.js?ver=3.3.3'></script>
+<script type='text/javascript' src='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/js/front-widget.js?ver=3.3.3'></script>
 <script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/single.js?ver=12082015'></script>
-<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/social-counts.js?ver=12082015'></script>
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blogs.msdn.microsoft.com/oldnewthing/xmlrpc.php?rsd" />
-<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blogs.msdn.microsoft.com/oldnewthing/wp-includes/wlwmanifest.xml" /> 
+<script type='text/javascript' src='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft/js/single.js?ver=12082015'></script>
+<script type='text/javascript' src='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft/js/social-counts.js?ver=12082015'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blogs.technet.microsoft.com/tangent_thoughts/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blogs.technet.microsoft.com/tangent_thoughts/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 4.1.5" />
-<link rel='shortlink' href='https://blogs.msdn.microsoft.com/oldnewthing/?p=93052' />
+<link rel='canonical' href='http://jialinxin.github.io/' />
+<link rel='shortlink' href='https://blogs.technet.microsoft.com/tangent_thoughts/?p=542' />
 <script type="text/javascript">
     jQuery( window ).load(
         function() {
@@ -47,42 +45,11 @@
         });
 </script>
 			<!-- Begin Custom CSS --><style type="text/css" id="wds-custom-css">
-			/* Disable styles from the parent theme by resetting them to defaults */
-code { padding: 0; font-size: inherit; color: inherit; background-color: inherit; }
-
-.entry-content caption, th,
-.entry-content td { padding: inherit; }
-.entry-content button { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; }
-.entry-content p { margin-bottom: 14px; }
-.entry-content ul,
-.entry-content ol { margin: initial; padding-left: 20px; }
-.entry-content ul li,
-.entry-content ol li { margin-bottom: initial; }
-.entry-content li > ul,
-.entry-content li > ol { margin; initial; }
-.entry-content blockquote { margin: initial; color: inherit; /* padding: inherit; border-left: inherit; */ padding; 1ex; border: solid 1px black; font-size: inherit; }
-.entry-content blockquote p { font-size: inherit; line-height: inherit; /* margin: initial; */ }
-.entry-content pre { font-size: inherit; font-family: monospace; line-height: /* inherit */ normal; margin: initial; padding: initial; background: inherit; border: none; }
-.entry-content td, .entry-content th { border-bottom: inherit; }
-
-.entry-content blockquote p { /* font-size: 1em; */ }
-
-.comment-body blockquote { margin: initial; color: inherit; /* padding: initial; border-left: inherit; */ padding: 0px 0px 0px 10px; border-left: solid 1px black; font-size: inherit; }
-
-/* Reduce the impact of long words */
-.comment-body { word-wrap: break-word; }
-
-/* Don't indent replies so much */
-.comment-list .children { padding-left: 40px; }
-
-#content  table {
-    width: auto;
-}
-			</style><!-- End Custom CSS -->
-			    <link rel="shortcut icon" href="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft-msdn/images/favicon-msdn.png">
+						</style><!-- End Custom CSS -->
+			    <link rel="shortcut icon" href="https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft-technet/images/favicon-technet.png">
 </head>
 
-<body class="single single-post postid-93052 single-format-standard">
+<body class="single single-post postid-542 single-format-standard">
 <div id="page" class="site container-fluid">
 
 	<header id="site-header" class="site-header row" role="banner">
@@ -96,7 +63,7 @@ code { padding: 0; font-size: inherit; color: inherit; background-color: inherit
 				<div id="site-logo" class="col-sm-5 row navbar-header">
 					<div id="header-microsoft-logo">
 						<a id="home-link" href="https://www.microsoft.com/">
-							<img id="header-microsoft-logo-svg" src="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/images/ms-logo-gray.svg">
+							<img id="header-microsoft-logo-svg" src="https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft/images/ms-logo-gray.svg">
 							<span id="brand">
 								<span id="brand-separator">|</span>
 								<span id="brand-name"></span>
@@ -107,7 +74,7 @@ code { padding: 0; font-size: inherit; color: inherit; background-color: inherit
 				<div id="site-header-global-right" class="col-sm-7">
 					<div id="site-profile-menu" class="navbar-collapse collapse">
 						<div id="search-form-wrapper">
-							<form id="search-form" role="search" action="https://social.msdn.microsoft.com/search/en-US" home-url="https://blogs.msdn.microsoft.com/oldnewthing" autocomplete="off">
+							<form id="search-form" role="search" action="https://social.msdn.microsoft.com/search/en-US" home-url="https://blogs.technet.microsoft.com/tangent_thoughts" autocomplete="off">
 								<div class="input-group">
 									<input type="hidden" name="refinement" value="109" />
 									<input type="text" class="form-control" placeholder="Search" name="query" id="srch-term">
@@ -132,7 +99,7 @@ code { padding: 0; font-size: inherit; color: inherit; background-color: inherit
 															</div>
 						</div>
 						<div id="me-control">
-															<a href="https://blogs.msdn.microsoft.com/wp-login.php?aadsso_action=login">Sign in</a>
+															<a href="https://blogs.technet.microsoft.com/wp-login.php?aadsso_action=login">Sign in</a>
 													</div>
 					</div>
 				</div>
@@ -147,10 +114,10 @@ code { padding: 0; font-size: inherit; color: inherit; background-color: inherit
 							<div id="blog-logo" data-toggle="collapse" data-target="#blog-menu">
 							<div id="blog-logo-text">
 				<h3 class="site-title ms-blog-title">
-					<a href="https://blogs.msdn.microsoft.com/oldnewthing" class="for-desktop">
-						The Old New Thing					</a>
+					<a href="https://blogs.technet.microsoft.com/tangent_thoughts" class="for-desktop">
+						Tangent Thoughts					</a>
 					<a href="#" class="for-mobile">
-						The Old New Thing					</a>
+						Tangent Thoughts					</a>
 				</h3>
 				<p class="site-description ms-blog-description"></p>
 			</div>
@@ -175,8 +142,8 @@ code { padding: 0; font-size: inherit; color: inherit; background-color: inherit
 				
 
 	<header class="entry-header single">
-		<h1 class="entry-title">When I try to calculate a performance counter manually, the answer is off by a factor of 100</h1>		<div class="rating-wrap">
-		<div id="star-rating-93052" class="wds-ratings" data-rating="4" data-userrating="0" data-postid="93052">
+		<h1 class="entry-title">Bookmark this aka.ms/Azure/Shortcuts | Just scroll and click</h1>		<div class="rating-wrap">
+		<div id="star-rating-542" class="wds-ratings" data-rating="5" data-userrating="0" data-postid="542">
 			<div class="wds-ratings-inner-wrap">
 				<div>
 					<div class="wds-ratings-stars" data-stars="5"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span><span class="star-3">&#x2605;</span><span class="star-4">&#x2605;</span><span class="star-5">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="4"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span><span class="star-3">&#x2605;</span><span class="star-4">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="3"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span><span class="star-3">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="2"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="1"><span class="star-1">&#x2605;</span></div>
@@ -185,11 +152,11 @@ code { padding: 0; font-size: inherit; color: inherit; background-color: inherit
 		</div>
 		</div>		<div class="clear-both"></div>
 		<div class="entry-meta">
-			<span class="posted-on"><span class="screen-reader-text"> </span><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052" rel="bookmark"><time class="entry-date published updated" datetime="2016-02-19T07:00:00+00:00">February 19, 2016</time></a></span><span class="byline">By <span class="author vcard"><a class="url fn n profile-usercard-hover" data-profile-userid="f269b99f31414b258eb45016a9ac7206" href="https://social.msdn.microsoft.com/profile/Raymond+Chen+-+MSFT">Raymond Chen - MSFT</a></span></span><span class="comments-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comments" title="Comment on When I try to calculate a performance counter manually, the answer is off by a factor of 100">8</a></span>				<span class="social-icons-wrap">
+			<span class="posted-on"><span class="screen-reader-text"> </span><a href="https://blogs.technet.microsoft.com/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/" rel="bookmark"><time class="entry-date published updated" datetime="2016-02-04T04:09:23+00:00">February 4, 2016</time></a></span><span class="byline">By <span class="author vcard"><a class="url fn n profile-usercard-hover" data-profile-userid="d53e05ae0a364e418747b11a13e1772d" href="https://social.technet.microsoft.com/profile/mzbowe">mzbowe</a></span></span><span class="comments-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a href="https://blogs.technet.microsoft.com/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/#respond" title="Comment on Bookmark this aka.ms/Azure/Shortcuts | Just scroll and click">0</a></span>				<span class="social-icons-wrap">
 		<ul class="social-icons">
-			<li class="social-icon facebook"><a data-social='{"type":"facebook", "url":"https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052", "text": "When I try to calculate a performance counter manually, the answer is off by a factor of 100"}' href="#" id="get_post_like_count">0</a></li>
-			<li class="social-icon twitter"><a data-social='{"type":"twitter", "url":"https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052", "text": "When I try to calculate a performance counter manually, the answer is off by a factor of 100"}' href="#" id="post_tweet_count">0</a></li>
-			<li class="social-icon linkedin"><a data-social='{"type":"linkedin", "url":"https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052", "text": "When I try to calculate a performance counter manually, the answer is off by a factor of 100"}' href="#" id="get_post_linkedin_count">0</a></li>
+			<li class="social-icon facebook"><a data-social='{"type":"facebook", "url":"https://blogs.technet.microsoft.com/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/", "text": "Bookmark this aka.ms/Azure/Shortcuts | Just scroll and click"}' href="#" id="get_post_like_count">0</a></li>
+			<li class="social-icon twitter"><a data-social='{"type":"twitter", "url":"https://blogs.technet.microsoft.com/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/", "text": "Bookmark this aka.ms/Azure/Shortcuts | Just scroll and click"}' href="#" id="post_tweet_count">0</a></li>
+			<li class="social-icon linkedin"><a data-social='{"type":"linkedin", "url":"https://blogs.technet.microsoft.com/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/", "text": "Bookmark this aka.ms/Azure/Shortcuts | Just scroll and click"}' href="#" id="get_post_linkedin_count">0</a></li>
 		</ul>
 	</span><!-- .social-icons-wrap -->
 	<script type="text/javascript">
@@ -199,134 +166,120 @@ code { padding: 0; font-size: inherit; color: inherit; background-color: inherit
 		</div>
 		<hr>
 	</header><!-- .entry-header -->
-<article id="post-93052" class="post-93052 post type-post status-publish format-standard hentry category-uncategorized tag-code">
+	
+<article id="post-542" class="post-542 post type-post status-publish format-standard hentry category-uncategorized tag-azure tag-shortcuts">
 
 	<div class="entry-content single">
-		<p>
-A customer was having difficulty calculating a performance counter
-manually.
-According to the formula
-<a HREF="https://msdn.microsoft.com/en-us/library/ms803979.aspx">
-in the documentation</a>,
-performance counters that are of type
-<code>PERF_PRECISION_100NS_TIMER</code>
-should be calculated as
-(<var>N</var>&#x2081;&minus;<var>N</var>&#x2080;)/(<var>D</var>&#x2081;&minus;<var>D</var>&#x2080;).
-But when we do that, the results we get are a factor of 100 smaller
-than the values reported by PerfMon.
-Are we expected to multiply the result by 100?
-</p>
-<p>
-Let&#8217;s take a step back and look at the various types of performance
-counters.
-</p>
-<p>
-One general category
-is the counter that simply reports an instantaneous value.
-You ask for the amount of free memory,
-you get the amount of free memory
-at the moment you ask.
-</p>
-<p>
-Another is a counter that accumulates a value over time.
-You ask for the number of bytes written to disk,
-and you get the number of bytes written to disk since the
-performance counter started keeping track.
-To extract something more useful like &#8220;bytes written to disk per second&#8221;,
-you are expected to read the value,
-wait one second, then read it again,
-and then subtract.
-That gives the number of bytes written in the period of time that
-elapsed between the first and second reading.
-</p>
-<p>
-If you want to report &#8220;bytes written per second&#8221; over a different
-period of time, you read the value, wait a little while, then read the
-value again; then you subtract the two readings and divide by the
-amount of time that elapsed between the two readings.
-Fancy math people might say that you are expected to <i>differentiate</i>
-over time, because what you are calculating is a derivative:
-<font SIZE="+1">(</font><var>f</var>&thinsp;(<var>a</var> + <var>h</var>)
-&minus; <var>f</var>&thinsp;(<var>a</var>)<font SIZE="+1">)</font>/<var>h</var>.
-</p>
-<p>
-For example, suppose you want to report &#8220;bytes written per second&#8221;,
-but update the value ten times per second.
-You would read the value, wait 0.1s, then read the value again.
-Subtract the two readings to determine the number of bytes written
-during the 0.1s interval.
-To convert to this to bytes written per second, divide by 0.1s.
-</p>
-<p>
-Via dimensional analysis: Bytes read &divide; seconds elapsed
-= bytes read per second.
-</p>
-<p>
-A special case of the accumulated value is the temporal
-accumlated value.
-These are values that indicate how much time was spent performing
-some activity.
-If you subtract the two readings, then divide by the time between
-readings, you determine what fraction of the time was spent
-performing that activity.
-</p>
-<p>
-For example, &#8220;CPU idle time&#8221; accumulates over time.
-To find out how idle the machine was in the past second,
-you read the idle time, wait one second, then read the idle
-time again. Subtract to determine the amount of time spent
-idle during the past second.
-And if you want to measure over a larger or smaller interval,
-you divide by the amount of time that elapsed between the readings.
-</p>
-<p>
-Many of the accumulated values actually report two values:
-The accumulated value and a timestamp.
-The timestamp records the internal time at which the accumulated
-value was obtained.
-This is important for two reasons:
-For one thing, it takes time
-to read the counter,
-and you don&#8217;t want that time to skew your calculations.
-But more important is that
-your code to wait exactly one second between readings
-can have latency or wobble,
-either because that is in the nature of the timer you chose,
-or because something happened outside your control,
-such as getting pre-empted by a hardware interrupt or taking a page fault.
-For high-speed counters,
-these delays can create large swings in calculated values.
-Using the timestamps reported by the counter ensures that your
-calculations are accurate.
-</p>
-<p>
-Okay, so now the question: Why is the calculation off by a
-factor of 100?
-</p>
-<p>
-The PerfMon program assumes that a differentiated accumulated time value
-represents a percentage.
-If you are differentiating a time value, then you are calculating
-the ratio of two time values, which is dimensionless.
-&#8220;During the 1-second interval that just ended,
-what fraction of the time was spent doing X?&#8221;
-This naturally lends itself to being expressed as a percentage
-rather than a direct ratio.
-It&#8217;s easier to understand &#8220;X is happening 15.3% of the time&#8221;
-rather than &#8220;X is happening 0.153 of the time.&#8221;
-</p>
-<p>
-The customer explained that they were
-interested in the total amount rather than an average over time.
-In which case, they can take the reading at the end and the reading
-at the start, subtract the two values, and don&#8217;t divide by the time
-that elapsed.
-That will tell you that the CPU was idle for <var>N</var>
-seconds between the two readings.
-I&#8217;m not sure what use that is to them without knowing how far
-apart the two readings are,
-but if that&#8217;s what you want, that&#8217;s
-how you get it.</p>
+		<p>That is it!  A work in progress.  Just want to make it simpler to remember key Azure links.  While I love the content on the Azure website, sometimes I have to click around a lot to get to the meat and potatoes of it all.  So I&#8217;ve done that for you.  Your dinner below is now served <img src="https://blogs.technet.microsoft.com/tangent_thoughts/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley" /></p>
+<p>All of my shortcuts will start with</p>
+<p><span style="color: #ff0000">aka.ms/Azure/</span> &lt;the thing&gt;</p>
+<p>If you are taking Azure Certification Exams, or just want a good overview of key concepts, with easy to remember URLs, then enjoy!</p>
+<p>Got an idea for new links, or you found broken links below?  Send an email to <a title="Azure Shortcuts" href="mailto:shortcuts@microsoft.com">Azure Shortcuts</a>!</p>
+<p>Let&#8217;s get started, and stay tuned&#8230;</p>
+<ul>
+<li><em>OK, this one is different, but one to reference as well</em> <a title="http://aka.ms/AzureIaaSOpsGuide" href="http://aka.ms/AzureIaaSOpsGuide" target="_blank">http://aka.ms/AzureIaaSOpsGuide</a></li>
+<li><a title="http://aka.ms/Azure/4pillars" href="http://aka.ms/Azure/4pillars" target="_blank">http://aka.ms/Azure/4pillars</a>        The Four Pillars of Identity &#8211; Identity Management in the Age of Hybrid IT</li>
+<li><a title="http://aka.ms/Azure/ACL" href="http://aka.ms/Azure/ACL" target="_blank">http://aka.ms/Azure/ACL</a></li>
+<li><a title="http://aka.ms/Azure/ACS" href="http://aka.ms/Azure/ACS" target="_blank">http://aka.ms/Azure/ACS</a>       Azure Container Service</li>
+<li><a title="http://aka.ms/Azure/AD" href="http://aka.ms/Azure/AD" target="_blank">http://aka.ms/Azure/AD</a></li>
+<li><a title="http://aka.ms/Azure/ADDS" href="http://aka.ms/Azure/ADDS" target="_blank">http://aka.ms/Azure/ADDS</a></li>
+<li><a title="http://aka.ms/Azure/Addresses" href="http://aka.ms/Azure/Addresses" target="_blank">http://aka.ms/Azure/Addresses</a></li>
+<li><a title="http://aka.ms/Azure/AppService" href="http://aka.ms/Azure/AppService" target="_blank">http://aka.ms/Azure/AppService</a></li>
+<li><a title="http://aka.ms/Azure/ARM" href="http://aka.ms/Azure/ARM" target="_blank">http://aka.ms/Azure/ARM </a></li>
+<li><a title="http://aka.ms/Azure/ASM" href="http://aka.ms/Azure/ASM" target="_blank">http://aka.ms/Azure/ASM</a></li>
+<li><a title="http://aka.ms/Azure/ASR" href="http://aka.ms/Azure/ASR" target="_blank">http://aka.ms/Azure/ASR</a></li>
+<li><a title="http://aka.ms/Azure/Authentication" href="http://aka.ms/Azure/Authentication" target="_blank">http://aka.ms/Azure/Authentication</a></li>
+<li><a title="http://aka.ms/Azure/Availability" href="http://aka.ms/Azure/Availability" target="_blank">http://aka.ms/Azure/Availability</a></li>
+<li><a title="http://aka.ms/Azure/Automation" href="http://aka.ms/Azure/Automation" target="_blank">http://aka.ms/Azure/Automation</a></li>
+<li><a title="http://aka.ms/Azure/AzCopy" href="http://aka.ms/Azure/AzCopy" target="_blank">http://aka.ms/Azure/AzCopy</a></li>
+<li><a title="http://aka.ms/azure/b2b" href="http://aka.ms/azure/b2b" target="_blank">http://aka.ms/Azure/B2B</a></li>
+<li><a title="http://aka.ms/Azure/B2C" href="http://aka.ms/Azure/B2C" target="_blank">http://aka.ms/Azure/B2C</a></li>
+<li><a title="http://aka.ms/Azure/Backup" href="http://aka.ms/Azure/Backup" target="_blank">http://aka.ms/Azure/Backup</a></li>
+<li><a title="http://aka.ms/Azure/Batch" href="http://aka.ms/Azure/Batch" target="_blank">http://aka.ms/Azure/Batch</a></li>
+<li><a title="http://aka.ms/Azure/BizTalk" href="http://aka.ms/Azure/BizTalk" target="_blank">http://aka.ms/Azure/BizTalk</a></li>
+<li><a title="http://aka.ms/Azure/Caching" href="http://aka.ms/Azure/Caching" target="_blank">http://aka.ms/Azure/Caching</a></li>
+<li><a title="http://aka.ms/Azure/Choose" href="http://aka.ms/Azure/Choose" target="_blank">http://aka.ms/Azure/Choose</a> Covers Cloud services (V1, not ARM (V2))</li>
+<li><a title="http://aka.ms/Azure/CDN" href="http://aka.ms/Azure/CDN" target="_blank">http://aka.ms/Azure/CDN</a></li>
+<li><a title="http://aka.ms/Azure/CLI" href="http://aka.ms/Azure/CLI" target="_blank">http://aka.ms/Azure/CLI</a>   All Command Line Tools, plus SDKs</li>
+<li><a title="http://aka.ms/Azure/Cloud" href="http://aka.ms/Azure/Cloud" target="_blank">http://aka.ms/Azure/Cloud</a></li>
+<li><a title="http://aka.ms/Azure/Compare" href="http://aka.ms/Azure/Compare" target="_blank">http://aka.ms/Azure/Compare</a></li>
+<li><a title="http://aka.ms/Azure/compliance" href="http://aka.ms/Azure/compliance" target="_blank">http://aka.ms/Azure/compliance</a></li>
+<li><a title="http://aka.ms/Azure/connections" href="http://aka.ms/Azure/connections" target="_blank">http://aka.ms/Connections</a></li>
+<li><a title="http://aka.ms/Azure/DataFactory" href="http://aka.ms/Azure/DataFactory" target="_blank">http://aka.ms/Azure/DataFactory</a></li>
+<li><a title="http://aka.ms/Azure/Disks" href="http://aka.ms/Azure/Disks" target="_blank">http://aka.ms/Azure/Disks</a></li>
+<li><a title="http://aka.ms/Azure/DMZ" href="http://aka.ms/Azure/DMZ" target="_blank">http://aka.ms/Azure/DMZ</a>           -MUST READ for your beginning network design.  Excellent!</li>
+<li><a title="http://aka.ms/Azure/Extensions" href="http://aka.ms/Azure/Extensions" target="_blank">http://aka.ms/Azure/Extensions</a></li>
+<li><a title="http://aka.ms/Azure/ForcedTunneling" href="http://aka.ms/Azure/ForcedTunneling" target="_blank">http://aka.ms/Azure/ForcedTunneling</a></li>
+<li><a title="http://aka.ms/Azure/Fridays" href="http://aka.ms/Azure/Fridays" target="_blank">http://aka.ms/Azure/Fridays</a></li>
+<li><a title="http://aka.ms/Azure/Gateways" href="http://aka.ms/Azure/Gateways" target="_blank">http://aka.ms/Azure/Gateways</a></li>
+<li><a title="http://aka.ms/Azure/Github" href="http://aka.ms/Azure/Github" target="_blank">http://aka.ms/Azure/Github</a>     Azure Quickstart Templates to deploy Azure V2 Resources!</li>
+<li><a title="http://aka.ms/Azure/Guidelines" href="http://aka.ms/Azure/Guidelines" target="_blank">http://aka.ms/Azure/Guidelines</a>        Azure infrastructure services implementation guidelines</li>
+<li><a title="http://aka.ms/Azure/Gov" href="http://aka.ms/Azure/Gov" target="_blank">http://aka.ms/Azure/Gov</a></li>
+<li><a title="http://aka.ms/Azure/Hybrid" href="http://aka.ms/Azure/Hybrid" target="_blank">http://aka.ms/Azure/Hybrid</a></li>
+<li><a title="http://aka.ms/Azure/IaaS" href="http://aka.ms/Azure/IaaS" target="_blank">http://aka.ms/Azure/IaaS</a></li>
+<li><a title="http://aka.ms/Azure/IaaSOpsGuide" href="http://aka.ms/Azure/IaaSOpsGuide" target="_blank">http://aka.ms/Azure/IaaSOpsGuide</a></li>
+<li><a title="http://aka.ms/Azure/IDMaaS" href="http://aka.ms/Azure/IDMaaS" target="_blank">http://aka.ms/Azure/IDMaaS</a></li>
+<li><a title="http://aka.ms/Azure/ILB" href="http://aka.ms/Azure/ILB" target="_blank">http://aka.ms/Azure/ILB</a></li>
+<li><a title="http://aka.ms/Azure/ILPIP" href="http://aka.ms/Azure/ILPIP" target="_blank">http://aka.ms/Azure/ILPIP</a>
+<ul>
+<li><a title="Http://aka.ms/Azure/static" href="http://aka.ms/Azure/static" target="_blank">Http://aka.ms/Azure/static</a></li>
+</ul>
+</li>
+<li><a title="http://aka.ms/Azure/KeyVault" href="http://aka.ms/Azure/KeyVault" target="_blank">http://aka.ms/Azure/KeyVault</a></li>
+<li><a title="http://aka.ms/Azure/LearningPaths" href="http://aka.ms/Azure/LearningPaths" target="_blank">http://aka.ms/Azure/LearningPaths</a></li>
+<li><a title="http://aka.ms/Azure/Linux" href="http://aka.ms/Azure/Linux" target="_blank">http://aka.ms/Azure/Linux</a></li>
+<li><a title="http://aka.ms/Azure/limits" href="http://aka.ms/Azure/limits" target="_blank">http://aka.ms/Azure/limits</a></li>
+<li><a title="http://aka.ms/Azure/lock" href="http://aka.ms/Azure/lock" target="_blank">http://aka.ms/Azure/lock</a>         How to lock Resource Groups!</li>
+<li><a title="http://aka.ms/Azure/Media" href="http://aka.ms/Azure/Media" target="_blank">http://aka.ms/Azure/Media</a></li>
+<li><a title="http://aka.ms/Azure/MFA" href="http://aka.ms/Azure/MFA" target="_blank">http://aka.ms/Azure/MFA</a></li>
+<li><a title="http://aka.ms/Azure/MicroServices" href="http://aka.ms/Azure/MicroServices" target="_blank">http://aka.ms/Azure/MicroServices</a></li>
+<li><a title="http://aka.ms/Azure/ML" href="http://aka.ms/Azure/ML" target="_blank">http://aka.ms/Azure/ML</a></li>
+<li><a title="http://aka.ms/Azure/MLStudio" href="http://aka.ms/Azure/MLStudio" target="_blank">http://aka.ms/Azure/MLStudio</a></li>
+<li><a title="http://aka.ms/Azure/MultiNIC" href="http://aka.ms/Azure/MultiNIC" target="_blank">http://aka.ms/Azure/MultiNIC</a></li>
+<li><a title="http://aka.ms/Azure/naming" href="http://aka.ms/Azure/naming" target="_blank">http://aka.ms/Azure/naming</a></li>
+<li><a title="http://aka.ms/Azure/NSG" href="http://aka.ms/Azure/NSG" target="_blank">http://aka.ms/Azure/NSG</a></li>
+<li><a title="http://aka.ms/Azure/OMS" href="http://aka.ms/Azure/OMS" target="_blank">http://aka.ms/Azure/OMS</a></li>
+<li><a title="http://aka.ms/Azure/OpenSource" href="http://aka.ms/Azure/OpenSource" target="_blank">http://aka.ms/Azure/OpenSource</a></li>
+<li><a title="http://aka.ms/Azure/PaaS" href="http://aka.ms/Azure/PaaS" target="_blank">http://aka.ms/Azure/PaaS</a></li>
+<li><a title="http://aka.ms/Azure/PowerShell" href="http://aka.ms/Azure/PowerShell" target="_blank">http://aka.ms/Azure/PowerShell</a></li>
+<li><a title="http://aka.ms/azure/premium" href="http://aka.ms/azure/premium" target="_blank">http://aka.ms/azure/premium</a></li>
+<li><a title="http://aka.ms/Azure/Providers" href="http://aka.ms/Azure/Providers" target="_blank">http://aka.ms/Azure/Providers</a></li>
+<li><a title="http://aka.ms/Azure/tags" href="http://aka.ms/Azure/tags" target="_blank">http://aka.ms/Azure/tags</a></li>
+<li><a title="http://aka.ms/Azure/RBAC" href="http://aka.ms/Azure/RBAC" target="_blank">http://aka.ms/Azure/RBAC</a></li>
+<li><a title="http://aka.ms/Azure/Redis" href="http://aka.ms/Azure/Redis" target="_blank">http://aka.ms/Azure/Redis</a></li>
+<li><a title="http://aka.ms/Azure/Replication" href="http://aka.ms/Azure/Replication" target="_blank">http://aka.ms/Azure/Replication</a></li>
+<li><a title="http://aka.ms/Azure/RHEL" href="http://aka.ms/Azure/RHEL" target="_blank">http://aka.ms/Azure/RHEL</a></li>
+<li><a title="http://aka.ms/Azure/Roadmap" href="http://aka.ms/Azure/Roadmap" target="_blank">http://aka.ms/Azure/Roadmap</a></li>
+<li><a title="http://aka.ms/Azure/RouteTable" href="http://aka.ms/Azure/RouteTable" target="_blank">http://aka.ms/Azure/RouteTable</a></li>
+<li><a title="http://aka.ms/Azure/SaaS" href="http://aka.ms/Azure/SaaS" target="_blank">http://aka.ms/Azure/SaaS</a></li>
+<li><a title="http://aka.ms/Azure/SAS" href="http://aka.ms/Azure/SAS" target="_blank">http://aka.ms/Azure/SAS</a></li>
+<li><a title="http://aka.ms/Azure/SDN" href="http://aka.ms/Azure/SDN" target="_blank">http://aka.ms/Azure/SDN</a></li>
+<li><a title="http://blogs.msdn.com/b/azuresecurity/archive/2016/01/06/azure-security-information-what-we-ve-done-where-we-re-going.aspx" href="http://blogs.msdn.com/b/azuresecurity/archive/2016/01/06/azure-security-information-what-we-ve-done-where-we-re-going.aspx" target="_blank">http://aka.ms/Azure/Security</a></li>
+<li><a title="http://aka.ms/Azure/Services" href="http://aka.ms/Azure/Services" target="_blank">http://aka.ms/Azure/Services</a></li>
+<li><a title="http://aka.ms/Azure/Sizes" href="http://aka.ms/Azure/Sizes" target="_blank">http://aka.ms/Azure/Sizes</a></li>
+<li><a title="http://aka.ms/Azure/Storage" href="http://aka.ms/Azure/Storage" target="_blank">http://aka.ms/Azure/Storage</a></li>
+<li><a title="http://aka.ms/Azure/StorSimple" href="http://aka.ms/Azure/StorSimple" target="_blank">http://aka.ms/Azure/StorSimple</a></li>
+<li><a title="http://aka.ms/Azure/SQL" href="http://aka.ms/Azure/SQL" target="_blank">http://aka.ms/Azure/SQL</a></li>
+<li><a title="http://aka.ms/Azure/SLA" href="http://aka.ms/Azure/SLA" target="_blank">http://aka.ms/Azure/SLA</a></li>
+<li><a title="http://aka.ms/Azure/Templates" href="http://aka.ms/Azure/Templates" target="_blank">http://aka.ms/Azure/Templates</a>     Get Azure Quickstart templates to deploy V2 Azure Resources!</li>
+<li><a title="http://aka.ms/Azure/Traffic" href="http://aka.ms/Azure/Traffic" target="_blank">http://aka.ms/Azure/Traffic</a></li>
+<li><a title="http://aka.ms/Azure/Trial" href="http://aka.ms/Azure/Trial" target="_blank">http://aka.ms/Azure/Trial</a></li>
+<li><a title="http://aka.ms/Azure/trust" href="http://aka.ms/Azure/trust" target="_blank">http://aka.ms/Azure/trust</a></li>
+<li><a title="http://aka.ms/Azure/UDR" href="http://aka.ms/Azure/UDR" target="_blank">http://aka.ms/Azure/UDR</a></li>
+<li><a title="http://aka.ms/Azure/Upload" href="http://aka.ms/Azure/Upload" target="_blank">http://aka.ms/Azure/Upload</a></li>
+<li><a title="http://aka.ms/Azure/VM" href="http://aka.ms/Azure/VM" target="_blank">http://aka.ms/Azure/VM</a></li>
+<li><a title="http://aka.ms/Azure/vmss" href="http://aka.ms/Azure/vmss" target="_blank">http://aka.ms/Azure/vmss</a>          VM Scale Sets</li>
+<li><a title="http://aka.ms/Azure/VNet" href="http://aka.ms/Azure/VNet" target="_blank">http://aka.ms/Azure/VNet</a></li>
+<li><a title="http://aka.ms/Azure/VPN" href="http://aka.ms/Azure/VPN" target="_blank">http://aka.ms/Azure/VPN</a></li>
+<li><a title="http://aka.ms/Azure/VS" href="http://aka.ms/Azure/VS" target="_blank">http://aka.ms/Azure/VS</a>          need some free Visual Studio?</li>
+<li><a title="http://aka.ms/Azure/WebApps" href="http://aka.ms/Azure/WebApps" target="_blank">http://aka.ms/Azure/WebApps</a></li>
+<li><a title="http://aka.ms/Azure/WebHooks" href="http://aka.ms/Azure/WebHooks" target="_blank">http://aka.ms/Azure/WebHooks</a></li>
+</ul>
+<p>A couple more deviants&#8230;.</p>
+<ul>
+<li><a href="http://aka.ms/webpi-azps">http://aka.ms/webpi-azps</a> &#8211; get the latest version of Azure PS</li>
+<li><a title="http://aka.ms/cloudpatterns" href="http://aka.ms/cloudpatterns" target="_blank">http://aka.ms/cloudpatterns</a></li>
+</ul>
 	</div><!-- .entry-content -->
 
 
@@ -334,7 +287,7 @@ how you get it.</p>
 					<div class="tags">
 				<span>Tags </span>
 				<span>
-					<a href="https://blogs.msdn.microsoft.com/oldnewthing/tag/code" rel="tag">Code</a>				</span>
+					<a href="https://blogs.technet.microsoft.com/tangent_thoughts/tag/azure/" rel="tag">Azure</a> <a href="https://blogs.technet.microsoft.com/tangent_thoughts/tag/shortcuts/" rel="tag">Shortcuts</a>				</span>
 			</div>
 				<hr>
 	</footer><!-- .entry-footer -->
@@ -347,141 +300,22 @@ how you get it.</p>
 		
 <div id="comments" class="comments-area">
 	<div class="comments-title">
-		Comments (8)	</div>
+		Comments (0)	</div>
 
 									<div id="respond" class="comment-respond">
-				<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/oldnewthing/20160219-00/?p=93052#respond" style="display:none;">Cancel reply</a></small></h3>
-									<form action="https://blogs.msdn.microsoft.com/oldnewthing/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+				<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="https://blogs.technet.microsoft.com/tangent_thoughts/wp-comments-post.php" method="post" id="commentform" class="comment-form">
 																										<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
 <p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required='true' /></p>
 <p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" /></p>
 												<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="4" aria-required="true"></textarea></p>												<p class="form-submit">
 							<input name="submit" type="submit" id="submit" class="submit" value="Post Comment" />
-							<input type='hidden' name='comment_post_ID' value='93052' id='comment_post_ID' />
+							<input type='hidden' name='comment_post_ID' value='542' id='comment_post_ID' />
 <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
 						</p>
-						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="dfd7349abf" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="96"/></p>					</form>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="f897e3ff81" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="190"/></p>					</form>
 							</div><!-- #respond -->
 			
-			<div class="navigation pagination clear-both">
-					</div>
-
-		<ol class="comment-list">
-					<li class="comment even thread-even depth-1 parent" id="comment-1227541">
-				<div id="div-comment-1227541" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/ce739b792e76734796d3532ddc47f0e1?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Sven2</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227541">
-			February 19, 2016 at 7:47 am</a>		</div>
-
-		<p>I&#8217;m with the customer here in that assuming a float from 0-1 seems more natural to me than 0-100. I usually keep all my ratios in 0-1 and only format to 0-100 directly before showing something to the user. I&#8217;m surprised that the API designers went for percentage instead.</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227541#respond' onclick='return addComment.moveForm( "div-comment-1227541", "1227541", "respond", "93052" )' aria-label='Reply to Sven2'>Reply</a></div>
-				</div>
-		<ol class="children">
-		<li class="comment byuser comment-author-oldnewthing bypostauthor odd alt depth-2" id="comment-1227554">
-				<div id="div-comment-1227554" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/d7efb72848c51bd38aec3037878ff74c?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Raymond Chen - MSFT</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227554">
-			February 19, 2016 at 8:05 am</a>		</div>
-
-		<p>You have it backwards. The API gives you a number in the range 0..1, per the formula (N₁−N₀)/(D₁−D₀). It is the customer who is expecting to get a value in the range 0..100. They thought that PerfMon was showing the raw output of the API. In reality, it converts the fraction to a percentage before displaying it to the user.</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227554#respond' onclick='return addComment.moveForm( "div-comment-1227554", "1227554", "respond", "93052" )' aria-label='Reply to Raymond Chen - MSFT'>Reply</a></div>
-				</div>
-		</li><!-- #comment-## -->
-</ol><!-- .children -->
-</li><!-- #comment-## -->
-		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-1227551">
-				<div id="div-comment-1227551" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/dd1e2ff80d3fcfc688c5433317f36e48?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">12BitSlab</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227551">
-			February 19, 2016 at 7:49 am</a>		</div>
-
-		<p>I know &#8220;Math is hard.&#8221;, but is this not a case of &#8220;4th grade math is hard!&#8221;????</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227551#respond' onclick='return addComment.moveForm( "div-comment-1227551", "1227551", "respond", "93052" )' aria-label='Reply to 12BitSlab'>Reply</a></div>
-				</div>
-		<ol class="children">
-		<li class="comment odd alt depth-2" id="comment-1227571">
-				<div id="div-comment-1227571" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/c91fdc0f486114d3ccabe0791e2c792c?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Antonio Rodríguez</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227571">
-			February 19, 2016 at 10:58 am</a>		</div>
-
-		<p>It reminds me of that poor Computer Science student that couldn&#8217;t tell multiplication from power. I was her data structures home teacher, and she wasn&#8217;t able to understand tree and graph transversing algorithms. &#8220;Do not teach me how it works,&#8221; she said. &#8220;Just give it to me so I can memorize it and spit it out in the exam&#8221; (that was 20 years ago, and programming examinations where made on paper). Sad.</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227571#respond' onclick='return addComment.moveForm( "div-comment-1227571", "1227571", "respond", "93052" )' aria-label='Reply to Antonio Rodríguez'>Reply</a></div>
-				</div>
-		</li><!-- #comment-## -->
-</ol><!-- .children -->
-</li><!-- #comment-## -->
-		<li class="comment even thread-even depth-1" id="comment-1227582">
-				<div id="div-comment-1227582" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/3e42479b6063be4a85f9974d2161dadf?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Neil</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227582">
-			February 20, 2016 at 4:22 am</a>		</div>
-
-		<p>Although not useful for CPU idle time, it might make more sense to measure, say, the total per-process CPU time for a process.</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227582#respond' onclick='return addComment.moveForm( "div-comment-1227582", "1227582", "respond", "93052" )' aria-label='Reply to Neil'>Reply</a></div>
-				</div>
-		</li><!-- #comment-## -->
-		<li class="comment byuser comment-author-cheong odd alt thread-odd thread-alt depth-1 parent" id="comment-1227602">
-				<div id="div-comment-1227602" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/2b711e6514fcaaf1d6201af47ddf6e9f?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">cheong00</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227602">
-			February 21, 2016 at 5:13 pm</a>		</div>
-
-		<p>I remember similar question got asked in MSDN forum, except that they were asking for method to read network utilization through SNMP, and except that Cisco documentation site already have the necessary formulas spelt out, and yet they had to ask followup question on how to get the value of &#8230; _-_</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227602#respond' onclick='return addComment.moveForm( "div-comment-1227602", "1227602", "respond", "93052" )' aria-label='Reply to cheong00'>Reply</a></div>
-				</div>
-		<ol class="children">
-		<li class="comment byuser comment-author-cheong even depth-2" id="comment-1227611">
-				<div id="div-comment-1227611" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/2b711e6514fcaaf1d6201af47ddf6e9f?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">cheong00</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227611">
-			February 21, 2016 at 10:15 pm</a>		</div>
-
-		<p>of &#8220;Delta T&#8221;&#8230; WordPress ate my words&#8230; :(</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227611#respond' onclick='return addComment.moveForm( "div-comment-1227611", "1227611", "respond", "93052" )' aria-label='Reply to cheong00'>Reply</a></div>
-				</div>
-		</li><!-- #comment-## -->
-</ol><!-- .children -->
-</li><!-- #comment-## -->
-		<li class="comment byuser comment-author-jader3rd odd alt thread-even depth-1" id="comment-1227632">
-				<div id="div-comment-1227632" class="comment-body">
-				<div class="comment-author vcard">
-			<img alt='' src='https://secure.gravatar.com/avatar/60adff0dc0ad4690de4a514f5c9e2e3c?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">jader3rd</cite> <span class="says">says:</span>		</div>
-		
-		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227632">
-			February 22, 2016 at 9:12 am</a>		</div>
-
-		<p>I had a similar experience with my dad the last time I visited him. I was going over an Excel spreadsheet with him, and when Excel calculated some formula for him, he said that I must have done it wrong because it was 100x too much. A few iterations, and they all were 100x too much. I wasn&#8217;t worried that I had done anything wrong, so when I had him actually look at the data, he remembered that the original data was in cents, and not dollars.</p>
-
-		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227632#respond' onclick='return addComment.moveForm( "div-comment-1227632", "1227632", "respond", "93052" )' aria-label='Reply to jader3rd'>Reply</a></div>
-				</div>
-		</li><!-- #comment-## -->
-		</ol><!-- .comment-list -->
-
-		<div class="navigation pagination">
-					</div>
-
 	
 	
 </div><!-- .comments-area -->
@@ -491,51 +325,35 @@ how you get it.</p>
 <div id="secondary" class="sidebar col-sm-3">
 
 					<div id="sidebar-widget-area" class="sidebar-widget-area" role="complementary">
-					<aside id="text-6" class="widget widget_text"><h2 class="widget-title">News</h2>			<div class="textwidget"><p>Holy cow, <a href="/oldnewthing/archive/2006/12/07/1233002.aspx">I wrote a book</a></p>
-<p><a rel="nofollow" href="http://www.amazon.com/gp/product/0321440307?ie=UTF8&amp;tag=tholneth-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321440307"><img border="0" src="http://images.amazon.com/images/P/0321440307.01._AA_SCMZZZZZZZ_V33963393_.jpg" alt=""><img border="0" width="1" src="http://www.assoc-amazon.com/e/ir?t=tholneth-20&amp;l=as2&amp;o=1&amp;a=0321440307" height="1" alt=""></a></p></div>
-		</aside><aside id="text-7" class="widget widget_text"><h2 class="widget-title">Basics</h2>			<div class="textwidget"><ul class="navigation-list">
-<li class="navigation-item"><a href="/b/oldnewthing/p/archives.aspx">Archives</a></li>
-<li class="navigation-item"><a href="/b/oldnewthing/archive/2004/02/21/77681.aspx">Ground Rules</a></li>
-<li class="navigation-item"><a href="/b/oldnewthing/archive/2010/07/20/10040074.aspx">Suggestion Box</a></li>
-<li class="navigation-item"><a href="/b/oldnewthing/pages/232903.aspx">Contact Me</a></li>
-<li class="navigation-item"><a href="/b/oldnewthing/pages/4520252.aspx">Disclaimers and such</a></li>
-</ul></div>
-		</aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widget-title">Categories</h2><div class="tagcloud"><a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/code' class='tag-link-23' title='1,550 topics' style='font-size: 14px;'>Code</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/non-computer' class='tag-link-3' title='1,371 topics' style='font-size: 14px;'>Non-Computer</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/other' class='tag-link-53' title='1,012 topics' style='font-size: 14px;'>Other</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/history' class='tag-link-43' title='524 topics' style='font-size: 14px;'>History</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/tipssupport' class='tag-link-33' title='273 topics' style='font-size: 14px;'>Tips/Support</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/microspeak' class='tag-link-73' title='100 topics' style='font-size: 14px;'>Microspeak</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/dream' class='tag-link-103' title='46 topics' style='font-size: 14px;'>Dream</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/email' class='tag-link-113' title='30 topics' style='font-size: 14px;'>email</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/news-flash' class='tag-link-63' title='24 topics' style='font-size: 14px;'>News flash</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/time' class='tag-link-93' title='22 topics' style='font-size: 14px;'>Time</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/the-wisdom-of-seventh-graders' class='tag-link-13' title='21 topics' style='font-size: 14px;'>The wisdom of seventh graders</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/the-social-skills-of-a-thermonuclear-device' class='tag-link-123' title='21 topics' style='font-size: 14px;'>The social skills of a thermonuclear device</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/dead-computers' class='tag-link-213' title='13 topics' style='font-size: 14px;'>Dead computers</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/things-ive-written-that-have-amused-other-people' class='tag-link-163' title='10 topics' style='font-size: 14px;'>Things I've written that have amused other people</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/highly-scientific' class='tag-link-83' title='9 topics' style='font-size: 14px;'>Highly scientific</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/stp' class='tag-link-243' title='8 topics' style='font-size: 14px;'>STP</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/what-a-drag' class='tag-link-203' title='8 topics' style='font-size: 14px;'>What a drag</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/modality' class='tag-link-253' title='8 topics' style='font-size: 14px;'>Modality</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/no-good-deed-goes-unpunished' class='tag-link-153' title='6 topics' style='font-size: 14px;'>No good deed goes unpunished</a>
-<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/exploiting-the-inattentive' class='tag-link-143' title='6 topics' style='font-size: 14px;'>Exploiting the inattentive</a></div>
-</aside><aside id="msdn-archive-widget-7" class="widget msdn-archive-widget"><h2 class="widget-title">Archives</h2>	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2016/02'>February 2016</a>&nbsp;(20)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2016/01'>January 2016</a>&nbsp;(22)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2016'>All of 2016</a>&nbsp;(42)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2015'>All of 2015</a>&nbsp;(276)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2014'>All of 2014</a>&nbsp;(304)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2013'>All of 2013</a>&nbsp;(348)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2012'>All of 2012</a>&nbsp;(307)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2011'>All of 2011</a>&nbsp;(310)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2010'>All of 2010</a>&nbsp;(360)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2009'>All of 2009</a>&nbsp;(420)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2008'>All of 2008</a>&nbsp;(431)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2007'>All of 2007</a>&nbsp;(460)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2006'>All of 2006</a>&nbsp;(430)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2005'>All of 2005</a>&nbsp;(396)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2004'>All of 2004</a>&nbsp;(440)</li>
-	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2003'>All of 2003</a>&nbsp;(189)</li>
+					<aside id="sfmsb_settings-2" class="widget sfmsb_widget"><div class="sfmsb-follow-social-buttons sfmsb-under sfmsb-circle 40 sfmsb-horizontal"><h2 class="widget-title">Follow Us</h2><a target="_blank" href="https://blogs.technet.microsoft.com/tangent_thoughts/feed/"><span class="sfmsb-icon-feed sfmsb-circle" style="color:#ffa500;font-size:40px;" data-color="#ffa500"></span></a><div class="sfmsb-clearfix"></div></div></aside><aside id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widget-title">Popular Tags</h2><div class="tagcloud"><a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/azure/' class='tag-link-391' title='10 topics' style='font-size: 14px;'>Azure</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/active-directory/' class='tag-link-23' title='7 topics' style='font-size: 14px;'>Active Directory</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/server-2008-r2/' class='tag-link-33' title='5 topics' style='font-size: 14px;'>server 2008 R2</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/2012-r2/' class='tag-link-371' title='4 topics' style='font-size: 14px;'>2012 R2</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/exam-prep/' class='tag-link-211' title='3 topics' style='font-size: 14px;'>exam prep</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/certification/' class='tag-link-201' title='3 topics' style='font-size: 14px;'>Certification</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/upgrade/' class='tag-link-43' title='3 topics' style='font-size: 14px;'>Upgrade</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/ad-fs/' class='tag-link-361' title='3 topics' style='font-size: 14px;'>AD FS</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/server-2012/' class='tag-link-13' title='3 topics' style='font-size: 14px;'>Server 2012</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/windows-server-8/' class='tag-link-63' title='2 topics' style='font-size: 14px;'>&quot;windows server 8&quot;</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/rms/' class='tag-link-451' title='2 topics' style='font-size: 14px;'>RMS</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/windows-8/' class='tag-link-73' title='2 topics' style='font-size: 14px;'>&quot;Windows 8&quot;</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/migration/' class='tag-link-143' title='2 topics' style='font-size: 14px;'>Migration</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/quick-reference-guide/' class='tag-link-381' title='2 topics' style='font-size: 14px;'>Quick Reference Guide</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/shortcuts/' class='tag-link-83' title='2 topics' style='font-size: 14px;'>Shortcuts</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/web-application-proxy/' class='tag-link-351' title='2 topics' style='font-size: 14px;'>Web Application Proxy</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/roles/' class='tag-link-103' title='1 topic' style='font-size: 14px;'>roles</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/group-policies/' class='tag-link-3' title='1 topic' style='font-size: 14px;'>Group Policies</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/direct-access/' class='tag-link-93' title='1 topic' style='font-size: 14px;'>&quot;direct access&quot;</a>
+<a href='https://blogs.technet.microsoft.com/tangent_thoughts/tag/active-directory-2/' class='tag-link-53' title='1 topic' style='font-size: 14px;'>&quot;Active Directory&quot;</a></div>
+</aside><aside id="msdn-archive-widget-2" class="widget msdn-archive-widget"><h2 class="widget-title">Archives</h2>	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2016/02/'>February 2016</a>&nbsp;(2)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2015/10/'>October 2015</a>&nbsp;(3)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2016/'>All of 2016</a>&nbsp;(2)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2015/'>All of 2015</a>&nbsp;(16)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2014/'>All of 2014</a>&nbsp;(2)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2013/'>All of 2013</a>&nbsp;(1)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2012/'>All of 2012</a>&nbsp;(5)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2011/'>All of 2011</a>&nbsp;(1)</li>
+	<li><a href='https://blogs.technet.microsoft.com/tangent_thoughts/2010/'>All of 2010</a>&nbsp;(1)</li>
 </aside>				</div>
 			
 </div><!-- #secondary -->
@@ -557,7 +375,7 @@ how you get it.</p>
 		<div id="footer-far" class="col-sm-2">
 			<div id="footer-microsoft-logo">
 				<a href="https://www.microsoft.com">
-					<img id="footer-microsoft-logo-svg" src="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/images/ms-logo-white-text.svg">
+					<img id="footer-microsoft-logo-svg" src="https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft/images/ms-logo-white-text.svg">
 				</a>
 			</div>
 			<div id="copyright">
@@ -574,8 +392,8 @@ how you get it.</p>
 		$login_link = $( 'a[href*="wp-login.php?"]' );
 				$login_link.on( 'click', function( evt ) {
 			// evt.preventDefault();
-						// console.log( 'cookie-set', '/oldnewthing/20160219-00/?p=93052' );
-			$.cookie( 'aadsso-redirect', '/oldnewthing/20160219-00/?p=93052', { expires: 1, path: '/' });
+						// console.log( 'cookie-set', '/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/' );
+			$.cookie( 'aadsso-redirect', '/tangent_thoughts/2016/02/04/bookmark-this-aka-msazureshortcuts/', { expires: 1, path: '/' });
 		});
 	});
 	</script>
@@ -602,7 +420,7 @@ how you get it.</p>
 	<noscript><img alt="" width="1" height="1" src="http://c.microsoft.com/trans_pixel.aspx"/></noscript>
 	-->
 
-		<span id='page-view-tracking-info' blog-id='20263' post-id='93052'></span>
+		<span id='page-view-tracking-info' blog-id='26943' post-id='542'></span>
 		<script type="text/javascript">
 			jQuery( window ).load( function() {
 				jQuery.ajax({
@@ -697,17 +515,17 @@ how you get it.</p>
 			}
 		);
 	</script>
-<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/akismet/_inc/form.js?ver=3.1.4'></script>
+<script type='text/javascript' src='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/plugins/akismet/_inc/form.js?ver=3.1.4'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */
-var wds_ratings_config = {"ajaxurl":"https:\/\/blogs.msdn.microsoft.com\/oldnewthing\/wp-admin\/admin-ajax.php","user_id":"0","nonce":"712129d638","debug":"","no_auth_alert":"You must be logged in to rate an article."};
-var wds_ratings_config = {"ajaxurl":"https:\/\/blogs.msdn.microsoft.com\/oldnewthing\/wp-admin\/admin-ajax.php","user_id":"0","nonce":"712129d638","debug":"","no_auth_alert":"You must be logged in to rate an article."};
+var wds_ratings_config = {"ajaxurl":"https:\/\/blogs.technet.microsoft.com\/tangent_thoughts\/wp-admin\/admin-ajax.php","user_id":"0","nonce":"712129d638","debug":"","no_auth_alert":"You must be logged in to rate an article."};
+var wds_ratings_config = {"ajaxurl":"https:\/\/blogs.technet.microsoft.com\/tangent_thoughts\/wp-admin\/admin-ajax.php","user_id":"0","nonce":"712129d638","debug":"","no_auth_alert":"You must be logged in to rate an article."};
 /* ]]> */
 </script>
-<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/wds-ratings/wds-ratings.js?ver=05272015'></script>
+<script type='text/javascript' src='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/plugins/wds-ratings/wds-ratings.js?ver=05272015'></script>
 <script type='text/javascript' src='https://code.jquery.com/jquery-migrate-1.3.0.min.js'></script>
-<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/theme-merged.js?ver=12082015'></script>
-<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/vendor/jquery.cookie.js?ver=11092015'></script>
+<script type='text/javascript' src='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft/js/theme-merged.js?ver=12082015'></script>
+<script type='text/javascript' src='https://blogs.technet.microsoft.com/tangent_thoughts/wp-content/themes/microsoft/js/vendor/jquery.cookie.js?ver=11092015'></script>
 
 </body>
 </html>
