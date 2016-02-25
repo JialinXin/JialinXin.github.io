@@ -1,476 +1,714 @@
 
 <!DOCTYPE html>
-<!-- saved from url=(0055)http://weareminky.com/share/ms/docs/conceptual/example/ -->
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="ms.pagetype" content="conceptual" />
-    <meta name="ms.sitename" content="DOCS" />
-    <meta name="layout" content="Conceptual" />
-<meta name="breadcrumb_path" content="/CapsToOpsTest_EMS/v1/toc.json" />
-<meta name="_docfxVersion" content="1.4.2.0" />
-<meta name="version" content="0" />
-<meta name="ms.locale" content="en-us" />
-<meta name="locale" content="en-us" />
-<meta name="open_to_public_contributors" content="True" />
-<meta name="title" content="ATA Prerequisites" />
-<meta name="rawTitle" content="&lt;h1 id=&quot;ata-prerequisites&quot;&gt;ATA Prerequisites&lt;/h1&gt;" />
-<meta name="ms.custom" content="[
-  &quot;ATA&quot;
-]" />
-<meta name="ms.tgt_pltfrm" content="na" />
-<meta name="ms.assetid" content="a5f90544-1c70-4aff-8bf3-c59dd7abd687" />
-<meta name="ms.author" content="5f6e9ed0-302d-496f-873c-7a2b94e50410" />
-<meta name="keywords" content="na" />
-<meta name="search" content="na" />
-<meta name="ms.topic" content="article" />
-<meta name="pagetitle" content="ATA Prerequisites" />
-<meta name="ms.date" content="na" />
-<meta name="ms.technology" content="[
-  &quot;security&quot;
-]" />
-<meta name="ms.prod" content="identity-ata" />
-<meta name="original_content_git_url" content="https://github.com/kimizhu/CapsToOpsTest_ATA/blob/live/CapsToOpsTest_ATA/v1/Topic/ATA_Prerequisites.md" />
-<meta name="content_git_url" content="https://github.com/kimizhu/CapsToOpsTest_ATA/blob/live/CapsToOpsTest_ATA/v1/Topic/ATA_Prerequisites.md" />
-<meta name="wordCount" content="1796" />
-<meta name="toc_asset_id" content="Topic/TOC.json" />
-<meta name="toc_rel" content="TOC.json" />
-<meta property="og:image" content="https://i.microsoft.com/global/ImageStore/PublishingImages/business/global/logos/microsoft-logo-share.jpg" />
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="all" href="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft-msdn/style.css"/>
+	<link rel="pingback" href="https://blogs.msdn.microsoft.com/oldnewthing/xmlrpc.php">
+	<!--[if lt IE 9]>
+	<script src="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/html5.js"></script>
+	<![endif]-->
+	<title>When I try to calculate a performance counter manually, the answer is off by a factor of 100 | The Old New Thing</title>
+		<script type="text/javascript">
+		var ajaxurl = 'https://blogs.msdn.microsoft.com/oldnewthing/wp-admin/admin-ajax.php';
+		</script>
+		<link rel="alternate" type="application/rss+xml" title="The Old New Thing &raquo; When I try to calculate a performance counter manually, the answer is off by a factor of 100 Comments Feed" href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052/feed" />
+<link rel='stylesheet' id='sfmsb-style-css'  href='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/css/style.css?ver=3.3.3' type='text/css' media='all' />
+<link rel='stylesheet' id='sfmsb-icons-css'  href='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/css/icons.css?ver=3.3.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wds-ratings-css'  href='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/wds-ratings/wds-ratings.css?ver=4.1.5' type='text/css' media='all' />
+<script type='text/javascript' src='https://code.jquery.com/jquery-1.11.3.min.js'></script>
+<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/simple-follow-me-social-buttons-widget/assets/js/front-widget.js?ver=3.3.3'></script>
+<script type='text/javascript' src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/single.js?ver=12082015'></script>
+<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/social-counts.js?ver=12082015'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://blogs.msdn.microsoft.com/oldnewthing/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://blogs.msdn.microsoft.com/oldnewthing/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.1.5" />
+<link rel='canonical' href='https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052' />
+<link rel='shortlink' href='https://blogs.msdn.microsoft.com/oldnewthing/?p=93052' />
+<script type="text/javascript">
+    jQuery( window ).load(
+        function() {
+            if (!document.getElementById("gajs"))
+            {
+                window._gaq = window._gaq || [];
+                                var pluginUrl ='//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+                window._gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+                window._gaq.push(['_setAccount', 'UA-65691138-1']);
+                                window._gaq.push(['_trackPageview']);
+                                (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.id = 'gajs';
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+            }
+        });
+</script>
+			<!-- Begin Custom CSS --><style type="text/css" id="wds-custom-css">
+			/* Disable styles from the parent theme by resetting them to defaults */
+code { padding: 0; font-size: inherit; color: inherit; background-color: inherit; }
 
-    <title>ATA Prerequisites</title>
-    <link rel="stylesheet" href="../_themes/css/conceptual.css">
-    <script src="../_themes/javascript/jquery-2.1.4.min.js"></script>
-    <script src="../_themes/javascript/docs.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script src="https://openfeedback.blob.core.windows.net/openfeedback/openfeedback.js"></script>
-    <script src="https://cdn.livefyre.com/Livefyre.js"></script>
-  </head>
-  <body>
-    <header id="header" ms.pgarea="header">
-      <div id="common-nav-placeholder">
-        <div class="container">
-          <h3>Microsoft</h3>
-          <h5></h5>
-        </div>
-      </div>
-      
-      <div id="sub-header" class="container" ms.cmpgrp="breadcrumb">
-        <ul class="breadcrumbs"></ul>
-      </div>
-    </header>
+.entry-content caption, th,
+.entry-content td { padding: inherit; }
+.entry-content button { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; }
+.entry-content p { margin-bottom: 14px; }
+.entry-content ul,
+.entry-content ol { margin: initial; padding-left: 20px; }
+.entry-content ul li,
+.entry-content ol li { margin-bottom: initial; }
+.entry-content li > ul,
+.entry-content li > ol { margin; initial; }
+.entry-content blockquote { margin: initial; color: inherit; /* padding: inherit; border-left: inherit; */ padding; 1ex; border: solid 1px black; font-size: inherit; }
+.entry-content blockquote p { font-size: inherit; line-height: inherit; /* margin: initial; */ }
+.entry-content pre { font-size: inherit; font-family: monospace; line-height: /* inherit */ normal; margin: initial; padding: initial; background: inherit; border: none; }
+.entry-content td, .entry-content th { border-bottom: inherit; }
 
-    <div class="container" ms.pgarea="body">
+.entry-content blockquote p { /* font-size: 1em; */ }
 
-      <aside id="social" ms.cmpgrp="social">
-        <ol class="social-actions">
-          <li class="menu-theme">
-            <div class="dropdown-container">
-              <div class="dropdown">
-                <select id="theme-selector">
-                  <option value="">Light</option>
-                  <option value="theme-night">Dark</option>
-                  <option value="theme-hot-dog">Hot Dog</option>
-                </select>
-              </div>
-            </div>
-          </li>
-          <li><a href="" class="button button-small"><span class="icon icon-comments"></span> Comments</a></li>
-          <li><a href="https://github.com/kimizhu/CapsToOpsTest_ATA/blob/live/CapsToOpsTest_ATA/v1/Topic/ATA_Prerequisites.md" class="button button-small"><span class="icon icon-edit"></span> Edit</a></li>
-          <li><a href="#" class="button button-small sharebutton"><span class="icon icon-share"></span> Share</a></li>
-          <div class="share-container">
-            <li><a href="" class="share-twitter"><i class="fa fa-fw">&#xf099</i> Twitter</a></li>
-            <li><a href="" class="share-facebook"><i class="fa fa-fw">&#xf09a</i> Facebook</a></li>
-            <!--<li><a href="" class="share-slack"><i class="fa fa-fw">&#xf198</i> Slack</a></li>-->
-          </div>
-        </ol>
+.comment-body blockquote { margin: initial; color: inherit; /* padding: initial; border-left: inherit; */ padding: 0px 0px 0px 10px; border-left: solid 1px black; font-size: inherit; }
 
-        <div id="menu-expand">
-          <h6><span id="menu-expand-icon">+ </span>Options</h6>
-        </div>
-      </aside>
-      
-      <div id="toc" ms.cmpgrp="left toc">
-        <nav id="sidebar"></nav>
-      </div>
-      
-      <div id="menu-nav" class="dropdown-container">
-        <div class="dropdown dropdown-full mobilenavi">
-          <select>
-          </select>
-        </div>
-      </div>
+/* Reduce the impact of long words */
+.comment-body { word-wrap: break-word; }
 
-      <div id="main">
-        <h1>ATA Prerequisites</h1>
-        <div id="metadata" ms.cmpgrp="page info">
-          <a href="https://github.com/kimizhu" class="avatar"><span class="author-name" style="background-image: url(https://github.com/kimizhu.png)" alt="Author Name"></span></a>
-          <div class="info">
-            <span class="name"><a href="https://github.com/kimizhu">jasoz</a></span>
-            <div class="meta">
-              <time datetime="" class="date">1/4/2016</time>
-              <time datetime="" class="reading-time">8 min</time>
-              <ul class="contributors">
-                
-              </ul>
-            </div>
-          </div> 
-        </div>
+/* Don't indent replies so much */
+.comment-list .children { padding-left: 40px; }
 
-        <aside class="toc" ms.cmpgrp="intopic toc">
-          <h5>In this article</h5>
-        </aside>
+#content  table {
+    width: auto;
+}
+			</style><!-- End Custom CSS -->
+			    <link rel="shortcut icon" href="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft-msdn/images/favicon-msdn.png">
+</head>
 
-        <div><div class="content">
-<p>This article describes the requirements for a successful deployment of ATA in your environment.</p>
-<p>ATA is comprised of two components, the ATA Center and the ATA Gateway. For more information about the ATA components, see <a href="ATA_Architecture.html">ATA Architecture</a>.</p>
-<p><a href="#ATAbeforeyoustart">Before you start</a>: This section lists information you should gather and accounts and network entities you should have before starting ATA installation.</p>
-<p><a href="#ATAcenter">ATA Center</a>: This section lists ATA Center hardware, software requirements as well as settings  you need to configure on your ATA Center server.</p>
-<p><a href="#ATAgateway">ATA Gateway</a>: This section lists ATA Gateway hardware, software requirements as well as settings  you need to configure on your ATA Gateway servers.</p>
-<p><a href="#ATAconsole">ATA Console</a>: This section lists browser requirements for running the ATA Console.</p>
-<p><img src="http://docpilot.azurewebsites.net/ATA/Image/ATA_architecture_topology.jpg" alt=""></p>
-<h2 id="-a-name-atabeforeyoustart-a-before-you-start"><a name="ATAbeforeyoustart"></a>Before you start</h2>
-<p>This section lists information you should gather and accounts and network entities you should have before starting ATA installation.</p>
-<ul>
-<li><p><strong>Domain controllers</strong> running on Windows Server 2008 and later.</p>
-</li>
-<li><p><strong>User account and password</strong> with read access to <strong>all objects</strong> in the domains that will be monitored.</p>
-<div class="NOTE"><h5>NOTE</h5><p>If you have set custom ACLs on various Organizational Units (OU) in your domain, make sure that the selected user has read permissions to those OUs.</p>
-</div>
-<p> Optional: User should have read only permissions on the Deleted Objects container. This will allow ATA to detect bulk deletion of objects in the domain. For information about configuring read only permissions on the Deleted Objects container, see the <strong>Changing permissions on a deleted object container</strong> section in the <a href="https://technet.microsoft.com/library/cc816824%28v=ws.10%29.aspx">View or Set Permissions on a Directory Object</a> topic.</p>
-</li>
-<li><p>Optional: A user account of a user who has no network activities. This account will be configured as the ATA Honeytoken user. To configure the Honeytoken user you will need the SID of the user account, not the username.</p>
-</li>
-<li><p>Optional: In addition to collecting and analyzing network traffic to and from the domain controllers, ATA can use Windows event 4776 to further enhance ATA Pass-the-Hash detection. This can be received from your SIEM or by  setting Windows Event Forwarding from your domain controller. Events collected provide ATA with additional information that is not available via the domain controller network traffic.</p>
-</li>
-<li><p>It may be useful for you to have a list of all subnets used on your network for VPN and Wi-Fi, which reassign IP addresses between devices within a very short period of time (seconds or minutes).  You will want to identify these short-term lease subnets so that ATA can reduce their cache lifetime to accommodate the fast re-assignment between devices. See <a href="Install_ATA.html">Install ATA</a> for short-term lease subnet configuration.</p>
-</li>
-</ul>
-<h2 id="-a-name-atacenter-a-ata-center-requirements"><a name="ATAcenter"></a>ATA Center requirements</h2>
-<p>This section lists the requirements for the ATA Center.</p>
-<p>The ATA Center supports installation on a server running Windows Server 2012 R2. Run Windows Update and make sure all important updates are installed. 
- The number of domain controllers you are monitoring and the load on each of the domain controllers dictates the hardware requirements.</p>
-<p>Installation of the ATA Center as a virtual machine is supported. For more information see <a href="Configure_Port_Mirroring.html">Configure Port Mirroring</a>.</p>
-<p>If you run the ATA Center as a virtual machine, shut down the server before creating a new checkpoint to avoid potential database corruption.</p>
-<div class="NOTE"><h5>NOTE</h5><p>The ATA Center can be installed on a server that is a member of a domain or workgroup.</p>
-</div>
-<p><strong>Minimum requirements</strong></p>
-<ul>
-<li><p>CPU -  8 cores</p>
-</li>
-<li><p>Memory - 48 GB</p>
-</li>
-<li><p>Storage - 1000 GB per month to monitor 2 lightly loaded domain controllers</p>
-</li>
-</ul>
-<p>The ATA Center requires a minimum of 21 days of data for user behavioral analytics. For more information on hardware requirements, see <a href="ATA_Capacity_Planning.html">ATA Capacity Planning</a>.</p>
-<div class="NOTE"><h5>NOTE</h5><p>If you want to install ATA in a lab with a few VMs, it is recommended that you have at least 2 cores, 4 GB of RAM and 100GB of storage to allow you to interact with the ATA Console without support for production deployment.</p>
-</div>
-<h3 id="time-synchronization">Time synchronization</h3>
-<p>The ATA Center server,  the ATA Gateway servers and the domain controllers must have time synchronized to within 5 minutes of each other.</p>
-<h3 id="bios-settings">BIOS settings</h3>
-<p>The ATA database necessitates that you <strong>disable</strong> Non-uniform memory access (NUMA) in the BIOS. Your system may refer to NUMA as Node Interleaving, in which case you will have to <strong>enable</strong> Node Interleaving. See your BIOS documentation for more information.</p>
-<h3 id="network-adapters">Network adapters</h3>
-<p>Requirements:</p>
-<ul>
-<li><p>One network adapter</p>
-</li>
-<li><p>Two IP addresses</p>
-</li>
-</ul>
-<p>Communication between the ATA Center and the ATA Gateway is encrypted using SSL on port 443. Additionally, the ATA Console runs on IIS and is secured using SSL on port 443. <strong>Two IP addresses</strong> are recommended. The ATA Center service will bind port 443 to the first IP address and IIS will bind port 443 to the second IP address.</p>
-<div class="NOTE"><h5>NOTE</h5><p>A single IP address with two different ports can be used, but two IP addresses are recommended.</p>
-</div>
-<h3 id="ports">Ports</h3>
-<p>The following table lists the minimum ports that have to be opened for the ATA Center to work properly.</p>
-<p>In this table, IP address 1 is bound to the ATA Center service and IP address 2 is bound to the IIS service for the ATA Console.</p>
-<table>
-<thead>
-<tr>
-<th>Protocol <br> <br></th>
-<th>Transport <br> <br></th>
-<th>Port <br> <br></th>
-<th>To/From <br> <br></th>
-<th>Direction <br> <br></th>
-<th>IP Address <br> <br></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>SSL</strong> (ATA Communications) <br> <br></td>
-<td>TCP <br> <br></td>
-<td>443, or configurable <br> <br></td>
-<td>ATA Gateway <br> <br></td>
-<td>Inbound <br> <br></td>
-<td>IP address 1 <br> <br></td>
-</tr>
-<tr>
-<td><strong>HTTP</strong> <br> <br></td>
-<td>TCP <br> <br></td>
-<td>80 <br> <br></td>
-<td>Company Network <br> <br></td>
-<td>Inbound <br> <br></td>
-<td>IP address 2 <br> <br></td>
-</tr>
-<tr>
-<td><strong>HTTPS</strong> <br> <br></td>
-<td>TCP <br> <br></td>
-<td>443 <br> <br></td>
-<td>Company Network and ATA Gateway <br> <br></td>
-<td>Inbound <br> <br></td>
-<td>IP address 2 <br> <br></td>
-</tr>
-<tr>
-<td><strong>SMTP</strong> (optional) <br> <br></td>
-<td>TCP <br> <br></td>
-<td>25 <br> <br></td>
-<td>SMTP Server <br> <br></td>
-<td>Outbound <br> <br></td>
-<td>IP address 2 <br> <br></td>
-</tr>
-<tr>
-<td><strong>SMTPS</strong> (optional) <br> <br></td>
-<td>TCP <br> <br></td>
-<td>465 <br> <br></td>
-<td>SMTP Server <br> <br></td>
-<td>Outbound <br> <br></td>
-<td>IP address 2 <br> <br></td>
-</tr>
-<tr>
-<td><strong>Syslog</strong> (optional) <br> <br></td>
-<td>TCP <br> <br></td>
-<td>514 <br> <br></td>
-<td>Syslog server <br> <br></td>
-<td>Outbound <br> <br></td>
-<td>IP address 2 <br> <br></td>
-</tr>
-</tbody>
-</table>
-<h3 id="certificates">Certificates</h3>
-<p>Make sure the ATA Gateways have access to your CRL distribution point. If the ATA Gateways don&#39;t have Internet access, follow <a href="https://technet.microsoft.com/en-us/library/aa996972%28v=exchg.65%29.aspx">the procedure to manually import a CRL</a>, taking care to install the all the CRL distribution points for the whole chain.</p>
-<p>To ease the installation of the ATA Center, you can install self-signed certificates during the installation of the ATA Center. Post deployment you can replace the self-signed with a certificate from an internal Certification Authority to be used by the ATA Gateway.</p>
-<div class="NOTE"><h5>NOTE</h5><p>Self-signed certificates should be used only for lab deployment.</p>
-</div>
-<p>The ATA Center requires certificates for the following services:</p>
-<ul>
-<li><p>Internet Information Services (IIS) – Web server certificate</p>
-</li>
-<li><p>ATA Center service – Server authentication certificate</p>
-</li>
-</ul>
-<div class="NOTE"><h5>NOTE</h5><p>If you are going to access the ATA Console from other computers, ensure that those computers trust the certificate being used by IIS otherwise you will get a warning page that there is a problem with the website&#39;s security certificate before getting to the log in page.</p>
-</div>
-<h2 id="-a-name-atagateway-a-ata-gateway-requirements"><a name="ATAgateway"></a>ATA Gateway requirements</h2>
-<p>The ATA Gateway supports installation on a server running Windows Server 2012 R2.</p>
-<p>Run Windows Update and make sure all <strong>Important</strong> updates have been installed. 
-Before installing ATA Gateway confirm that the following update has been installed: <a href="https://support.microsoft.com/en-us/kb/2919355/">KB2919355</a>.</p>
-<p>You can check by running the following Windows PowerShell cmdlet: <code>[Get-HotFix -Id kb2919355]</code>.</p>
-<div class="NOTE"><h5>NOTE</h5><ul>
-<li>The ATA Gateway can be installed on a server that is a member of a domain or workgroup.</li>
-<li>The ATA Gateway cannot be installed on a domain controller.</li>
-</ul>
-</div>
-<p>For information on using virtual machines with the ATA Gateway, see <a href="Configure_Port_Mirroring.html">Configure Port Mirroring</a>.</p>
-<div class="NOTE"><h5>NOTE</h5><p>If you run the ATA Gateway as a virtual machine, shut down the server before creating a new checkpoint to avoid potential database corruption.</p>
-</div>
-<p>An ATA Gateway can support monitoring multiple domain controllers, depending on the amount of network traffic to and from the domain controllers.</p>
-<p><strong>Minimum requirements:</strong></p>
-<ul>
-<li><p>CPU - 4 cores</p>
-</li>
-<li><p>Memory - 8 GB</p>
-</li>
-<li><p>Storage - Enough for the OS + 10GB for ATA + crash dumps = at least 100 GB</p>
-</li>
-</ul>
-<p>For more information, see <a href="ATA_Capacity_Planning.html">ATA Capacity Planning</a>.</p>
-<h3 id="power-settings">Power settings</h3>
-<p>For optimal performance, set the <strong>Power Option</strong> of the ATA Gateway to <strong>High Performance</strong>.</p>
-<h3 id="time-synchronization">Time synchronization</h3>
-<p>The ATA Center server and the ATA Gateway server must have time synchronized to within 5 minutes of each other.</p>
-<p>In addition, The ATA Gateway and the domain controllers to which it connects must have time synchronized to within 5 minutes of each other.</p>
-<h3 id="network-adapters">Network adapters</h3>
-<p>The ATA Gateway requires at least one Management adapter and at least one Capture adapter:</p>
-<ul>
-<li><p><strong>Management adapter</strong> - will be used for communications on your corporate network. This adapter should be configured with the following:</p>
-<ul>
-<li><p>Static IP address including default gateway</p>
-</li>
-<li><p>Preferred and alternate DNS servers</p>
-</li>
-<li><p>The <strong>DNS suffix for this connection</strong> should be the DNS name of the domain for each domain being monitored.</p>
-<p> <img src="http://docpilot.azurewebsites.net/ATA/Image/ATA_DNS_Suffix.png" alt=""></p>
-<div class="NOTE"><h5>NOTE</h5><p>If the ATA Gateway is a member of the domain, this is configured automatically.</p>
-</div>
-</li>
-</ul>
-</li>
-<li><p><strong>Capture adapter</strong> - will be used to capture traffic to and from the domain controllers.</p>
-<div class="IMPORTANT"><h5>IMPORTANT</h5><ul>
-<li>Configure port mirroring for the capture adapter as the destination of the domain controller network traffic. See <a href="Configure_Port_Mirroring.html">Configure Port Mirroring</a>  for additional information. Typically, you will need to work with the networking or virtualization team to configure port mirroring.</li>
-<li>Configure a static non-routable IP address for your environment with no default gateway and no DNS server addresses. For example, 1.1.1.1/32. This will ensure that the capture network adapter can capture the maximum amount of traffic and that the management network adapter is used to send and receive the required network traffic.</li>
-</ul>
-</div>
-</li>
-</ul>
-<h3 id="ports">Ports</h3>
-<p>The following table lists the minimum ports that the ATA Gateway requires configured on the management adapter.</p>
-<table>
-<thead>
-<tr>
-<th>Protocol <br> <br></th>
-<th>Transport <br> <br></th>
-<th>Port <br> <br></th>
-<th>To/From <br> <br></th>
-<th>Direction <br> <br></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>LDAP <br> <br></td>
-<td>TCP and UDP <br> <br></td>
-<td>389 <br> <br></td>
-<td>Domain controllers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>Secure LDAP (LDAPS) <br> <br></td>
-<td>TCP <br> <br></td>
-<td>636 <br> <br></td>
-<td>Domain controllers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>LDAP to Global Catalog <br> <br></td>
-<td>TCP <br> <br></td>
-<td>3268 <br> <br></td>
-<td>Domain controllers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>LDAPS to Global Catalog <br> <br></td>
-<td>TCP <br> <br></td>
-<td>3269 <br> <br></td>
-<td>Domain controllers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>Kerberos <br> <br></td>
-<td>TCP and UDP <br> <br></td>
-<td>88 <br> <br></td>
-<td>Domain controllers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>Netlogon <br> <br></td>
-<td>TCP and UDP <br> <br></td>
-<td>445 <br> <br></td>
-<td>Domain controllers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>Windows Time <br> <br></td>
-<td>UDP <br> <br></td>
-<td>123 <br> <br></td>
-<td>Domain controllers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>DNS <br> <br></td>
-<td>TCP and UDP <br> <br></td>
-<td>53 <br> <br></td>
-<td>DNS Servers <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>NTLM over RPC <br> <br></td>
-<td>TCP <br> <br></td>
-<td>135 <br> <br></td>
-<td>All devices on the network <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>NetBIOS <br> <br></td>
-<td>UDP <br> <br></td>
-<td>137 <br> <br></td>
-<td>All devices on the network <br> <br></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>SSL <br> <br></td>
-<td>TCP <br> <br></td>
-<td>443 or as configured for the Center Service <br> <br></td>
-<td>ATA Center: <br> <br><ul><li>Center Service IP Address </li><li>IIS IP Address </li> </ul></td>
-<td>Outbound <br> <br></td>
-</tr>
-<tr>
-<td>Syslog (optional) <br> <br></td>
-<td>UDP <br> <br></td>
-<td>514 <br> <br></td>
-<td>SIEM Server <br> <br></td>
-<td>Inbound <br> <br></td>
-</tr>
-</tbody>
-</table>
-<div class="NOTE"><h5>NOTE</h5><p>As part of the resolution process done by the ATA Gateway, the following ports need to be open inbound on devices on the network from the ATA Gateways.</p>
-<ul>
-<li>NTLM over RPC</li>
-<li>NetBIOS</li>
-</ul>
-</div>
-<h3 id="certificates">Certificates</h3>
-<p>To ease installation of the ATA Center, you can install self-signed certificates during the installation of the ATA Center. Post deployment you can replace the self-signed with a certificate from an internal Certification Authority to be used by the ATA Gateway.</p>
-<div class="NOTE"><h5>NOTE</h5><p>Self-signed certificates should be used only for lab deployment.</p>
-</div>
-<p>A certificate supporting <strong>Server Authentication</strong> is required to be installed in the Computer store of the ATA Gateway in the Local Computer store. This certificate must be trusted by the ATA Center.</p>
-<h2 id="-a-name-ataconsole-a-ata-console"><a name="ATAconsole"></a>ATA Console</h2>
-<p>Access to the ATA Console is via a browser, supporting the following:</p>
-<ul>
-<li><p>Internet Explorer version 10 and above</p>
-</li>
-<li><p>Google Chrome  40 and above</p>
-</li>
-<li><p>Minimum screen width resolution of 1700 pixels</p>
-</li>
-</ul>
-<h2 id="see-also">See Also</h2>
-<p><a href="ATA_Architecture.html">ATA Architecture</a>
-<a href="Install_ATA.html">Install ATA</a>
-<a href="https://social.technet.microsoft.com/Forums/security/en-US/home?forum=mata">For support, check out our forum!</a></p>
-</div></div>
+<body class="single single-post postid-93052 single-format-standard">
+<div id="page" class="site container-fluid">
 
-      </div>
-    </div>
+	<header id="site-header" class="site-header row" role="banner">
+		<div id="site-header-global-wrapper" class="site-header-global-wrapper">
+			<div id="site-header-global" class="site-header-global">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-profile-menu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div id="site-logo" class="col-sm-5 row navbar-header">
+					<div id="header-microsoft-logo">
+						<a id="home-link" href="https://www.microsoft.com/">
+							<img id="header-microsoft-logo-svg" src="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/images/ms-logo-gray.svg">
+							<span id="brand">
+								<span id="brand-separator">|</span>
+								<span id="brand-name"></span>
+							</span>
+						</a>
+					</div>
+				</div>
+				<div id="site-header-global-right" class="col-sm-7">
+					<div id="site-profile-menu" class="navbar-collapse collapse">
+						<div id="search-form-wrapper">
+							<form id="search-form" role="search" action="https://social.msdn.microsoft.com/search/en-US" home-url="https://blogs.msdn.microsoft.com/oldnewthing" autocomplete="off">
+								<div class="input-group">
+									<input type="hidden" name="refinement" value="109" />
+									<input type="text" class="form-control" placeholder="Search" name="query" id="srch-term">
+									<div class="input-group-btn">
+										<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+									</div>
+								</div>
+							</form>
+							<div id="search-option">
+								<div class="search-filter" id="search-filter-site">
+									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+									<span class="search-text">Search MSDN</span>
+								</div>
+								<div class="search-filter selected" id="search-filter-all-blogs">
+									<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+									<span class="search-text">Search all blogs</span>
+								</div>
+																	<div class="search-filter" id="search-filter-this-blog">
+										<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+										<span class="search-text">Search this blog</span>
+									</div>
+															</div>
+						</div>
+						<div id="me-control">
+															<a href="https://blogs.msdn.microsoft.com/wp-login.php?aadsso_action=login">Sign in</a>
+													</div>
+					</div>
+				</div>
 
-    <div id="openFeedbackContainer" class="openfeedback-container"></div>
-    <div id="comments-container" class="container"></div>
-    
-    <footer id="footer" ms.pgarea="footer">
-      <div class="container">
-        <a href="http://www.microsoft.com/" class="logo"><img src="http://docpilot.azurewebsites.net/ATA/_themes/images/logo-ms.png" alt="Microsoft"></a>
-        <ul class="links" ms.cmpgrp="footer link">
-          <li><a href="">Contact Us</a></li>
-          <li><a href="">Privacy Statement</a></li>
-          <li><a href="">Terms of Use</a></li>
-          <li><a href="">Trademarks</a></li>
-        </ul>
-      </div>
-    </footer>
+			</div>
 
-    <script>
-        //commenting configurations.
-        window.commentOptions = {
-            network: "microsoft-ssodemo.fyre.co",
-            siteId: "305985",
-            containerElementId: "comments-container",
-            documentIdMetaName: "ms.assetid",
-            sidenoteSelectors: "",
-            localeMetaName: "ms.locale"
-        };
-    </script>
+		</div>
+		<div id="site-header-blog-wrapper" class="site-header-blog-wrapper ms-blog-header clear-both">
+			<div id="site-header-blog" class="site-header-blog">
+				<nav class="navbar navbar-inverse">
+					<div id="blog-logo-area" class="navbar-header">
+							<div id="blog-logo" data-toggle="collapse" data-target="#blog-menu">
+							<div id="blog-logo-text">
+				<h3 class="site-title ms-blog-title">
+					<a href="https://blogs.msdn.microsoft.com/oldnewthing" class="for-desktop">
+						The Old New Thing					</a>
+					<a href="#" class="for-mobile">
+						The Old New Thing					</a>
+				</h3>
+				<p class="site-description ms-blog-description"></p>
+			</div>
+				<span class="caret for-mobile"></span>
+	</div>
+						</div>
+									</nav>
+			</div>
+		</div>
+		<div id="site-header-image-wrapper" class="ms-blog-banner">
+			<div id="site-header-image">
+											</div>
+		</div>
+	</header>
 
-    <script src="../_themes/javascript/conceptual.js"></script>
-    <script src="../_themes/javascript/insight.js"></script>
-    <script src="../_themes/javascript/rating.js"></script>
-    <script src="https://openfeedback.blob.core.windows.net/commenting/comment.js"></script>
-</body></html>
+	<div id="site-content" class="site-content row">
+
+	<div id="primary" class="content-area col-sm-9">
+		<div id="single-content" class="div-content">
+
+			
+				
+<article id="post-93052" class="post-93052 post type-post status-publish format-standard hentry category-uncategorized tag-code">
+
+	<header class="entry-header single">
+		<h1 class="entry-title">When I try to calculate a performance counter manually, the answer is off by a factor of 100</h1>		<div class="rating-wrap">
+		<div id="star-rating-93052" class="wds-ratings" data-rating="4" data-userrating="0" data-postid="93052">
+			<div class="wds-ratings-inner-wrap">
+				<div>
+					<div class="wds-ratings-stars" data-stars="5"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span><span class="star-3">&#x2605;</span><span class="star-4">&#x2605;</span><span class="star-5">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="4"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span><span class="star-3">&#x2605;</span><span class="star-4">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="3"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span><span class="star-3">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="2"><span class="star-1">&#x2605;</span><span class="star-2">&#x2605;</span></div><div class="wds-ratings-stars" data-stars="1"><span class="star-1">&#x2605;</span></div>
+				</div>
+			</div>
+		</div>
+		</div>		<div class="clear-both"></div>
+		<div class="entry-meta">
+			<span class="posted-on"><span class="screen-reader-text"> </span><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052" rel="bookmark"><time class="entry-date published updated" datetime="2016-02-19T07:00:00+00:00">February 19, 2016</time></a></span><span class="byline">By <span class="author vcard"><a class="url fn n profile-usercard-hover" data-profile-userid="f269b99f31414b258eb45016a9ac7206" href="https://social.msdn.microsoft.com/profile/Raymond+Chen+-+MSFT">Raymond Chen - MSFT</a></span></span><span class="comments-link"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comments" title="Comment on When I try to calculate a performance counter manually, the answer is off by a factor of 100">8</a></span>				<span class="social-icons-wrap">
+		<ul class="social-icons">
+			<li class="social-icon facebook"><a data-social='{"type":"facebook", "url":"https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052", "text": "When I try to calculate a performance counter manually, the answer is off by a factor of 100"}' href="#" id="get_post_like_count">0</a></li>
+			<li class="social-icon twitter"><a data-social='{"type":"twitter", "url":"https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052", "text": "When I try to calculate a performance counter manually, the answer is off by a factor of 100"}' href="#" id="post_tweet_count">0</a></li>
+			<li class="social-icon linkedin"><a data-social='{"type":"linkedin", "url":"https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052", "text": "When I try to calculate a performance counter manually, the answer is off by a factor of 100"}' href="#" id="get_post_linkedin_count">0</a></li>
+		</ul>
+	</span><!-- .social-icons-wrap -->
+	<script type="text/javascript">
+		// Get social counts
+		window.msdnsocial.ajax( 'get_post_like_count,post_tweet_count,get_post_linkedin_count' );
+	</script>
+		</div>
+		<hr>
+	</header><!-- .entry-header -->
+
+	<div class="entry-content single">
+		<p>
+A customer was having difficulty calculating a performance counter
+manually.
+According to the formula
+<a HREF="https://msdn.microsoft.com/en-us/library/ms803979.aspx">
+in the documentation</a>,
+performance counters that are of type
+<code>PERF_PRECISION_100NS_TIMER</code>
+should be calculated as
+(<var>N</var>&#x2081;&minus;<var>N</var>&#x2080;)/(<var>D</var>&#x2081;&minus;<var>D</var>&#x2080;).
+But when we do that, the results we get are a factor of 100 smaller
+than the values reported by PerfMon.
+Are we expected to multiply the result by 100?
+</p>
+<p>
+Let&#8217;s take a step back and look at the various types of performance
+counters.
+</p>
+<p>
+One general category
+is the counter that simply reports an instantaneous value.
+You ask for the amount of free memory,
+you get the amount of free memory
+at the moment you ask.
+</p>
+<p>
+Another is a counter that accumulates a value over time.
+You ask for the number of bytes written to disk,
+and you get the number of bytes written to disk since the
+performance counter started keeping track.
+To extract something more useful like &#8220;bytes written to disk per second&#8221;,
+you are expected to read the value,
+wait one second, then read it again,
+and then subtract.
+That gives the number of bytes written in the period of time that
+elapsed between the first and second reading.
+</p>
+<p>
+If you want to report &#8220;bytes written per second&#8221; over a different
+period of time, you read the value, wait a little while, then read the
+value again; then you subtract the two readings and divide by the
+amount of time that elapsed between the two readings.
+Fancy math people might say that you are expected to <i>differentiate</i>
+over time, because what you are calculating is a derivative:
+<font SIZE="+1">(</font><var>f</var>&thinsp;(<var>a</var> + <var>h</var>)
+&minus; <var>f</var>&thinsp;(<var>a</var>)<font SIZE="+1">)</font>/<var>h</var>.
+</p>
+<p>
+For example, suppose you want to report &#8220;bytes written per second&#8221;,
+but update the value ten times per second.
+You would read the value, wait 0.1s, then read the value again.
+Subtract the two readings to determine the number of bytes written
+during the 0.1s interval.
+To convert to this to bytes written per second, divide by 0.1s.
+</p>
+<p>
+Via dimensional analysis: Bytes read &divide; seconds elapsed
+= bytes read per second.
+</p>
+<p>
+A special case of the accumulated value is the temporal
+accumlated value.
+These are values that indicate how much time was spent performing
+some activity.
+If you subtract the two readings, then divide by the time between
+readings, you determine what fraction of the time was spent
+performing that activity.
+</p>
+<p>
+For example, &#8220;CPU idle time&#8221; accumulates over time.
+To find out how idle the machine was in the past second,
+you read the idle time, wait one second, then read the idle
+time again. Subtract to determine the amount of time spent
+idle during the past second.
+And if you want to measure over a larger or smaller interval,
+you divide by the amount of time that elapsed between the readings.
+</p>
+<p>
+Many of the accumulated values actually report two values:
+The accumulated value and a timestamp.
+The timestamp records the internal time at which the accumulated
+value was obtained.
+This is important for two reasons:
+For one thing, it takes time
+to read the counter,
+and you don&#8217;t want that time to skew your calculations.
+But more important is that
+your code to wait exactly one second between readings
+can have latency or wobble,
+either because that is in the nature of the timer you chose,
+or because something happened outside your control,
+such as getting pre-empted by a hardware interrupt or taking a page fault.
+For high-speed counters,
+these delays can create large swings in calculated values.
+Using the timestamps reported by the counter ensures that your
+calculations are accurate.
+</p>
+<p>
+Okay, so now the question: Why is the calculation off by a
+factor of 100?
+</p>
+<p>
+The PerfMon program assumes that a differentiated accumulated time value
+represents a percentage.
+If you are differentiating a time value, then you are calculating
+the ratio of two time values, which is dimensionless.
+&#8220;During the 1-second interval that just ended,
+what fraction of the time was spent doing X?&#8221;
+This naturally lends itself to being expressed as a percentage
+rather than a direct ratio.
+It&#8217;s easier to understand &#8220;X is happening 15.3% of the time&#8221;
+rather than &#8220;X is happening 0.153 of the time.&#8221;
+</p>
+<p>
+The customer explained that they were
+interested in the total amount rather than an average over time.
+In which case, they can take the reading at the end and the reading
+at the start, subtract the two values, and don&#8217;t divide by the time
+that elapsed.
+That will tell you that the CPU was idle for <var>N</var>
+seconds between the two readings.
+I&#8217;m not sure what use that is to them without knowing how far
+apart the two readings are,
+but if that&#8217;s what you want, that&#8217;s
+how you get it.</p>
+	</div><!-- .entry-content -->
+
+
+	<footer class="entry-footer single">
+					<div class="tags">
+				<span>Tags </span>
+				<span>
+					<a href="https://blogs.msdn.microsoft.com/oldnewthing/tag/code" rel="tag">Code</a>				</span>
+			</div>
+				<hr>
+	</footer><!-- .entry-footer -->
+
+</article><!-- #post-## -->
+
+			
+		</div><!-- #single-content -->
+
+		
+<div id="comments" class="comments-area">
+	<div class="comments-title">
+		Comments (8)	</div>
+
+									<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title"> <small><a rel="nofollow" id="cancel-comment-reply-link" href="/oldnewthing/20160219-00/?p=93052#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="https://blogs.msdn.microsoft.com/oldnewthing/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required='true' /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required='true' /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" /></p>
+												<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="4" aria-required="true"></textarea></p>												<p class="form-submit">
+							<input name="submit" type="submit" id="submit" class="submit" value="Post Comment" />
+							<input type='hidden' name='comment_post_ID' value='93052' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+						</p>
+						<p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="dfd7349abf" /></p><p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="96"/></p>					</form>
+							</div><!-- #respond -->
+			
+			<div class="navigation pagination clear-both">
+					</div>
+
+		<ol class="comment-list">
+					<li class="comment even thread-even depth-1 parent" id="comment-1227541">
+				<div id="div-comment-1227541" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/ce739b792e76734796d3532ddc47f0e1?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Sven2</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227541">
+			February 19, 2016 at 7:47 am</a>		</div>
+
+		<p>I&#8217;m with the customer here in that assuming a float from 0-1 seems more natural to me than 0-100. I usually keep all my ratios in 0-1 and only format to 0-100 directly before showing something to the user. I&#8217;m surprised that the API designers went for percentage instead.</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227541#respond' onclick='return addComment.moveForm( "div-comment-1227541", "1227541", "respond", "93052" )' aria-label='Reply to Sven2'>Reply</a></div>
+				</div>
+		<ol class="children">
+		<li class="comment byuser comment-author-oldnewthing bypostauthor odd alt depth-2" id="comment-1227554">
+				<div id="div-comment-1227554" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/d7efb72848c51bd38aec3037878ff74c?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Raymond Chen - MSFT</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227554">
+			February 19, 2016 at 8:05 am</a>		</div>
+
+		<p>You have it backwards. The API gives you a number in the range 0..1, per the formula (N₁−N₀)/(D₁−D₀). It is the customer who is expecting to get a value in the range 0..100. They thought that PerfMon was showing the raw output of the API. In reality, it converts the fraction to a percentage before displaying it to the user.</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227554#respond' onclick='return addComment.moveForm( "div-comment-1227554", "1227554", "respond", "93052" )' aria-label='Reply to Raymond Chen - MSFT'>Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-odd thread-alt depth-1 parent" id="comment-1227551">
+				<div id="div-comment-1227551" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/dd1e2ff80d3fcfc688c5433317f36e48?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">12BitSlab</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227551">
+			February 19, 2016 at 7:49 am</a>		</div>
+
+		<p>I know &#8220;Math is hard.&#8221;, but is this not a case of &#8220;4th grade math is hard!&#8221;????</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227551#respond' onclick='return addComment.moveForm( "div-comment-1227551", "1227551", "respond", "93052" )' aria-label='Reply to 12BitSlab'>Reply</a></div>
+				</div>
+		<ol class="children">
+		<li class="comment odd alt depth-2" id="comment-1227571">
+				<div id="div-comment-1227571" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/c91fdc0f486114d3ccabe0791e2c792c?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Antonio Rodríguez</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227571">
+			February 19, 2016 at 10:58 am</a>		</div>
+
+		<p>It reminds me of that poor Computer Science student that couldn&#8217;t tell multiplication from power. I was her data structures home teacher, and she wasn&#8217;t able to understand tree and graph transversing algorithms. &#8220;Do not teach me how it works,&#8221; she said. &#8220;Just give it to me so I can memorize it and spit it out in the exam&#8221; (that was 20 years ago, and programming examinations where made on paper). Sad.</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227571#respond' onclick='return addComment.moveForm( "div-comment-1227571", "1227571", "respond", "93052" )' aria-label='Reply to Antonio Rodríguez'>Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment even thread-even depth-1" id="comment-1227582">
+				<div id="div-comment-1227582" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/3e42479b6063be4a85f9974d2161dadf?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">Neil</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227582">
+			February 20, 2016 at 4:22 am</a>		</div>
+
+		<p>Although not useful for CPU idle time, it might make more sense to measure, say, the total per-process CPU time for a process.</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227582#respond' onclick='return addComment.moveForm( "div-comment-1227582", "1227582", "respond", "93052" )' aria-label='Reply to Neil'>Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-cheong odd alt thread-odd thread-alt depth-1 parent" id="comment-1227602">
+				<div id="div-comment-1227602" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/2b711e6514fcaaf1d6201af47ddf6e9f?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">cheong00</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227602">
+			February 21, 2016 at 5:13 pm</a>		</div>
+
+		<p>I remember similar question got asked in MSDN forum, except that they were asking for method to read network utilization through SNMP, and except that Cisco documentation site already have the necessary formulas spelt out, and yet they had to ask followup question on how to get the value of &#8230; _-_</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227602#respond' onclick='return addComment.moveForm( "div-comment-1227602", "1227602", "respond", "93052" )' aria-label='Reply to cheong00'>Reply</a></div>
+				</div>
+		<ol class="children">
+		<li class="comment byuser comment-author-cheong even depth-2" id="comment-1227611">
+				<div id="div-comment-1227611" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/2b711e6514fcaaf1d6201af47ddf6e9f?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">cheong00</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227611">
+			February 21, 2016 at 10:15 pm</a>		</div>
+
+		<p>of &#8220;Delta T&#8221;&#8230; WordPress ate my words&#8230; :(</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227611#respond' onclick='return addComment.moveForm( "div-comment-1227611", "1227611", "respond", "93052" )' aria-label='Reply to cheong00'>Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+</ol><!-- .children -->
+</li><!-- #comment-## -->
+		<li class="comment byuser comment-author-jader3rd odd alt thread-even depth-1" id="comment-1227632">
+				<div id="div-comment-1227632" class="comment-body">
+				<div class="comment-author vcard">
+			<img alt='' src='https://secure.gravatar.com/avatar/60adff0dc0ad4690de4a514f5c9e2e3c?s=56&amp;d=https%3A%2F%2Fsecure.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D56&amp;r=G' class='avatar avatar-56 photo' height='56' width='56' />			<cite class="fn">jader3rd</cite> <span class="says">says:</span>		</div>
+		
+		<div class="comment-meta commentmetadata"><a href="https://blogs.msdn.microsoft.com/oldnewthing/20160219-00/?p=93052#comment-1227632">
+			February 22, 2016 at 9:12 am</a>		</div>
+
+		<p>I had a similar experience with my dad the last time I visited him. I was going over an Excel spreadsheet with him, and when Excel calculated some formula for him, he said that I must have done it wrong because it was 100x too much. A few iterations, and they all were 100x too much. I wasn&#8217;t worried that I had done anything wrong, so when I had him actually look at the data, he remembered that the original data was in cents, and not dollars.</p>
+
+		<div class="reply"><a class='comment-reply-link' href='/oldnewthing/20160219-00/?p=93052&#038;replytocom=1227632#respond' onclick='return addComment.moveForm( "div-comment-1227632", "1227632", "respond", "93052" )' aria-label='Reply to jader3rd'>Reply</a></div>
+				</div>
+		</li><!-- #comment-## -->
+		</ol><!-- .comment-list -->
+
+		<div class="navigation pagination">
+					</div>
+
+	
+	
+</div><!-- .comments-area -->
+	</div><!-- #primary -->
+
+
+<div id="secondary" class="sidebar col-sm-3">
+
+					<div id="sidebar-widget-area" class="sidebar-widget-area" role="complementary">
+					<aside id="text-6" class="widget widget_text"><h2 class="widget-title">News</h2>			<div class="textwidget"><p>Holy cow, <a href="/oldnewthing/archive/2006/12/07/1233002.aspx">I wrote a book</a></p>
+<p><a rel="nofollow" href="http://www.amazon.com/gp/product/0321440307?ie=UTF8&amp;tag=tholneth-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0321440307"><img border="0" src="http://images.amazon.com/images/P/0321440307.01._AA_SCMZZZZZZZ_V33963393_.jpg" alt=""><img border="0" width="1" src="http://www.assoc-amazon.com/e/ir?t=tholneth-20&amp;l=as2&amp;o=1&amp;a=0321440307" height="1" alt=""></a></p></div>
+		</aside><aside id="text-7" class="widget widget_text"><h2 class="widget-title">Basics</h2>			<div class="textwidget"><ul class="navigation-list">
+<li class="navigation-item"><a href="/b/oldnewthing/p/archives.aspx">Archives</a></li>
+<li class="navigation-item"><a href="/b/oldnewthing/archive/2004/02/21/77681.aspx">Ground Rules</a></li>
+<li class="navigation-item"><a href="/b/oldnewthing/archive/2010/07/20/10040074.aspx">Suggestion Box</a></li>
+<li class="navigation-item"><a href="/b/oldnewthing/pages/232903.aspx">Contact Me</a></li>
+<li class="navigation-item"><a href="/b/oldnewthing/pages/4520252.aspx">Disclaimers and such</a></li>
+</ul></div>
+		</aside><aside id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widget-title">Categories</h2><div class="tagcloud"><a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/code' class='tag-link-23' title='1,550 topics' style='font-size: 14px;'>Code</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/non-computer' class='tag-link-3' title='1,371 topics' style='font-size: 14px;'>Non-Computer</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/other' class='tag-link-53' title='1,012 topics' style='font-size: 14px;'>Other</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/history' class='tag-link-43' title='524 topics' style='font-size: 14px;'>History</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/tipssupport' class='tag-link-33' title='273 topics' style='font-size: 14px;'>Tips/Support</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/microspeak' class='tag-link-73' title='100 topics' style='font-size: 14px;'>Microspeak</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/dream' class='tag-link-103' title='46 topics' style='font-size: 14px;'>Dream</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/email' class='tag-link-113' title='30 topics' style='font-size: 14px;'>email</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/news-flash' class='tag-link-63' title='24 topics' style='font-size: 14px;'>News flash</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/time' class='tag-link-93' title='22 topics' style='font-size: 14px;'>Time</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/the-wisdom-of-seventh-graders' class='tag-link-13' title='21 topics' style='font-size: 14px;'>The wisdom of seventh graders</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/the-social-skills-of-a-thermonuclear-device' class='tag-link-123' title='21 topics' style='font-size: 14px;'>The social skills of a thermonuclear device</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/dead-computers' class='tag-link-213' title='13 topics' style='font-size: 14px;'>Dead computers</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/things-ive-written-that-have-amused-other-people' class='tag-link-163' title='10 topics' style='font-size: 14px;'>Things I've written that have amused other people</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/highly-scientific' class='tag-link-83' title='9 topics' style='font-size: 14px;'>Highly scientific</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/stp' class='tag-link-243' title='8 topics' style='font-size: 14px;'>STP</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/what-a-drag' class='tag-link-203' title='8 topics' style='font-size: 14px;'>What a drag</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/modality' class='tag-link-253' title='8 topics' style='font-size: 14px;'>Modality</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/no-good-deed-goes-unpunished' class='tag-link-153' title='6 topics' style='font-size: 14px;'>No good deed goes unpunished</a>
+<a href='https://blogs.msdn.microsoft.com/oldnewthing/tag/exploiting-the-inattentive' class='tag-link-143' title='6 topics' style='font-size: 14px;'>Exploiting the inattentive</a></div>
+</aside><aside id="msdn-archive-widget-7" class="widget msdn-archive-widget"><h2 class="widget-title">Archives</h2>	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2016/02'>February 2016</a>&nbsp;(20)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2016/01'>January 2016</a>&nbsp;(22)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2016'>All of 2016</a>&nbsp;(42)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2015'>All of 2015</a>&nbsp;(276)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2014'>All of 2014</a>&nbsp;(304)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2013'>All of 2013</a>&nbsp;(348)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2012'>All of 2012</a>&nbsp;(307)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2011'>All of 2011</a>&nbsp;(310)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2010'>All of 2010</a>&nbsp;(360)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2009'>All of 2009</a>&nbsp;(420)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2008'>All of 2008</a>&nbsp;(431)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2007'>All of 2007</a>&nbsp;(460)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2006'>All of 2006</a>&nbsp;(430)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2005'>All of 2005</a>&nbsp;(396)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2004'>All of 2004</a>&nbsp;(440)</li>
+	<li><a href='https://blogs.msdn.microsoft.com/oldnewthing/2003'>All of 2003</a>&nbsp;(189)</li>
+</aside>				</div>
+			
+</div><!-- #secondary -->
+</div><!-- .site-content -->
+
+<footer id="site-footer" class="site-footer row" role="contentinfo">
+	<div id="site-info" class="site-info">
+		<div id="footer-text" class="col-sm-4 col-sm-offset-6">
+			<span>
+				<a href="http://msdn.microsoft.com/dn529288">Privacy & Cookies</a>
+			</span>
+			<span>
+				<a href="http://msdn.microsoft.com/cc300389">Terms of Use</a>
+			</span>
+			<span>
+				<a href="http://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/EN-US.aspx">Trademarks</a>
+			</span>
+		</div>
+		<div id="footer-far" class="col-sm-2">
+			<div id="footer-microsoft-logo">
+				<a href="https://www.microsoft.com">
+					<img id="footer-microsoft-logo-svg" src="https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/images/ms-logo-white-text.svg">
+				</a>
+			</div>
+			<div id="copyright">
+				@2016 Microsoft
+			</div>
+		</div>
+	</div><!-- .site-info -->
+</footer><!-- .site-footer -->
+
+</div><!-- .site -->
+
+	<script type="text/javascript">
+	jQuery(document).ready(function($){
+		$login_link = $( 'a[href*="wp-login.php?"]' );
+				$login_link.on( 'click', function( evt ) {
+			// evt.preventDefault();
+						// console.log( 'cookie-set', '/oldnewthing/20160219-00/?p=93052' );
+			$.cookie( 'aadsso-redirect', '/oldnewthing/20160219-00/?p=93052', { expires: 1, path: '/' });
+		});
+	});
+	</script>
+		<!--ADD WEDCS SCRIPT-->
+	<div id="_WEDCSInsertedData" style="display: none;"></div>
+	<script type="text/javascript">
+		jQuery( window ).load(
+			function() {
+				window.varSegmentation = 0;
+				window.varClickTracking = 1;
+				window.varCustomerTracking = 1;
+				window.varAutoFirePV = 1;
+				window.Route = ""; // was 23470 in the windows theme framework
+				window.Ctrl = "";
+				var wedcs_script = document.createElement('script');
+				wedcs_script.type = 'text/javascript';
+				wedcs_script.async = true;
+				wedcs_script.src = window.location.protocol + '//blogs.msdn.com/Themes/Shared/js/ms2_blogs.js';
+				document.getElementsByTagName('body')[0].appendChild(wedcs_script);
+			});
+	</script>
+	<!--
+	<script src="//c.microsoft.com/ms.js" type="text/javascript"></script>
+	<noscript><img alt="" width="1" height="1" src="http://c.microsoft.com/trans_pixel.aspx"/></noscript>
+	-->
+
+		<span id='page-view-tracking-info' blog-id='20263' post-id='93052'></span>
+		<script type="text/javascript">
+			jQuery( window ).load( function() {
+				jQuery.ajax({
+					url: document.location.protocol + '//' + document.domain,
+					type: 'get',
+					data: {
+						track_page_view_post_id: jQuery('#page-view-tracking-info').attr('post-id'),
+						track_page_view_blog_id: jQuery('#page-view-tracking-info').attr('blog-id'),
+						track_page_view_post_url: window.location.href.split('?')[0]
+						}
+				});
+			});
+		</script>	<script type="text/javascript">
+		jQuery( window ).load(
+			function(i) {
+				var n = window,
+					t = document,
+					e = n.console,
+					f, u, r, o;
+				typeof e == "undefined" && (f = function() {}, e = {
+					log: f,
+					warn: f,
+					assert: f,
+					clear: f,
+					dir: f,
+					error: f,
+					info: f,
+					profile: f,
+					profileEnd: f
+				}), u = {
+					appendToHead: function(n) {
+						if (t.getElementsByTagName("head").length > 0) t.getElementsByTagName("head")[0].appendChild(n);
+						else throw "bootstrapper: no head element found.";
+					},
+					appendToBody: function(n) {
+						if (t.getElementsByTagName("body").length > 0) t.getElementsByTagName("body")[0].appendChild(n);
+						else throw "bootstrapper: no body element found.";
+					},
+					addStyleElement: function(n) {
+						var i = t.createElement("link");
+						i.setAttribute("href", n), i.setAttribute("rel", "stylesheet"), i.setAttribute("type", "text/css"), u.appendToHead(i)
+					},
+					loadFiles: function(n, t) {
+						if (t !== i && u.recursiveScriptLoad(0, t), n !== i)
+							for (var r = 0, r = 0; r < n.length; r++) u.addStyleElement(n[r])
+					},
+					recursiveScriptLoad: function(n, t) {
+						t[n] && u.addScriptElement(t[n], function() {
+							u.recursiveScriptLoad(n + 1, t)
+						})
+					},
+					isCompatible: function(n, t) {
+						var r, u, i;
+						return (r = n.split("."), u = t.split("."), i = function(n) {
+							return isNaN(n) ? 0 : n
+						}, i(r[0]) > i(u[0]) || i(r[0]) === i(u[0]) && i(r[1]) > i(u[1]) || i(r[0]) === i(u[0]) && i(r[1]) === i(u[1]) && i(r[2]) >= i(u[2])) ? !0 : !1
+					},
+					addScriptElement: function(i, r) {
+						var f, e;
+						f = t.createElement("script"), f.setAttribute("type", "text/javascript"), f.async = true, f.setAttribute("src", i), f.attachEvent ? (e = function() {
+							setTimeout(function() {
+								typeof n.jQuery != "undefined" && r ? r() : e()
+							}, 10)
+						}, e()) : f.onload = r, u.appendToBody(f)
+					},
+					load: function(n, t) {
+						setTimeout(function() {
+							if (typeof n == "undefined") try {
+								u.addScriptElement(t.defaultPath, function() {
+									u.loadFiles(t.cssFiles, t.jsFiles)
+								});
+								return
+							} catch (i) {
+								e.warn("bootstrapper: failed to load default jQuery")
+							} else if (!u.isCompatible(n.fn.jquery, t.minimumVersion)) {
+								e.warn("bootstrapper: jQuery version is too old to load UserCard. Use v1.4.2 or later.");
+								return
+							}
+							u.loadFiles(t.cssFiles, t.jsFiles)
+						}, 0)
+					}
+				}, r = {
+					host: n.location.host,
+					search: "",
+					protocol: "https"
+				}, r.host = "widgets.services.microsoft.com", r.search = "?brand=msdn&lang=en&ver=4.9.0.0", r.protocol = "https:", o = {
+					minimumVersion: "1.1.2",
+					defaultPath: "https://code.jquery.com/jquery-1.4.2.min.js",
+					cssFiles: [r.protocol + "//" + r.host + "/v1/UnifiedBaseballCard.css" + r.search, r.protocol + "//" + r.host + "/v1/usercard.css" + r.search],
+					jsFiles: ["https://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js", r.protocol + "//" + r.host + "/v1/jquery.timeago.js" + r.search, r.protocol + "//" + r.host + "/v1/jquery.textfill.js" + r.search, r.protocol + "//" + r.host + "/v1/widgets.js" + r.search]
+				}, typeof n.jQuery == "undefined" ? u.load(i, o) : u.load(n.jQuery, o)
+			}
+		);
+	</script>
+<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/akismet/_inc/form.js?ver=3.1.4'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wds_ratings_config = {"ajaxurl":"https:\/\/blogs.msdn.microsoft.com\/oldnewthing\/wp-admin\/admin-ajax.php","user_id":"0","nonce":"712129d638","debug":"","no_auth_alert":"You must be logged in to rate an article."};
+var wds_ratings_config = {"ajaxurl":"https:\/\/blogs.msdn.microsoft.com\/oldnewthing\/wp-admin\/admin-ajax.php","user_id":"0","nonce":"712129d638","debug":"","no_auth_alert":"You must be logged in to rate an article."};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/plugins/wds-ratings/wds-ratings.js?ver=05272015'></script>
+<script type='text/javascript' src='https://code.jquery.com/jquery-migrate-1.3.0.min.js'></script>
+<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/theme-merged.js?ver=12082015'></script>
+<script type='text/javascript' src='https://blogs.msdn.microsoft.com/oldnewthing/wp-content/themes/microsoft/js/vendor/jquery.cookie.js?ver=11092015'></script>
+
+</body>
+</html>
