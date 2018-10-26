@@ -26,7 +26,7 @@
         <hr />
         <div id='groupchecked'>
           <input type="checkbox" id="checkbox" v-model="checked">
-          <label for="checkbox">{{ this.defaultgroup }}</label>
+          <label for="checkbox">Send To Default Group: {{ this.defaultgroup }}</label>
         </div>
         <form v-on:submit.prevent="sendNewMessage(checked)">
           <input type="text" v-model="newMessage" id="message-box" class="form-control" placeholder="Type message here..." />
@@ -75,7 +75,7 @@
   <script>
     const data = {
       username: '',
-      defaultgroup: 'SuperStar',
+      defaultgroup: 'AzureSignalR',
       checked: false,
       newMessage: '',
       messages: [],
@@ -102,7 +102,7 @@
           }
         },
         addToGroup: function (recipient) {
-          var r = confirm('Add user ' + recipient + ' from group: ' + this.defaultgroup);
+          var r = confirm('Add user ' + recipient + ' to group: ' + this.defaultgroup);
           if(r) {
             addGroup(this.username, recipient, this.defaultgroup);
           }
