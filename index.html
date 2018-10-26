@@ -102,7 +102,7 @@
           }
         },
         addToGroup: function (recipient) {
-          var r = confirm('Remove user ' + recipient + ' from group: ' + this.defaultgroup);
+          var r = confirm('Add user ' + recipient + ' from group: ' + this.defaultgroup);
           if(r) {
             addGroup(this.username, recipient, this.defaultgroup);
           }
