@@ -176,18 +176,22 @@
       return axios.post(`${apiBaseUrl}/api/group`, {
         action: "add",
         recipient: recipient,
-        groupname: groupName,
-        sender: sender
-      }, getAxiosConfig()).then(resp => resp.data);
+        groupname: groupName
+      }, getAxiosConfig()).then(resp => {
+          if(resp.status == 200) {
+            confirm("Add Successfully")
+          }});
     }
 
     function removeGroup(sender, recipient, groupName) {
       return axios.post(`${apiBaseUrl}/api/group`, {
         action: "remove",
         recipient: recipient,
-        groupname: groupName,
-        sender: sender
-      }, getAxiosConfig()).then(resp => resp.data);
+        groupname: groupName
+      }, getAxiosConfig()).then(resp => {
+          if(resp.status == 200) {
+            confirm("Remove Successfully")
+          }});
     }
 
     let counter = 0;
