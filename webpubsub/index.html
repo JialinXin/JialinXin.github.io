@@ -157,10 +157,13 @@
             return 'User ' + Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
         }
 
+        const axiosConfig = {
+            withCredentials: true
+        };
         const data = {
             websocket: null,
             username: generateUser(), // todo: oauth
-            endpoint: "http://localhost:7071",
+            endpoint: "https://jixin-wps-simplechat.azurewebsites.net",
             newMessage: '',
             chat: { messages: [] },
             logs: [],
@@ -173,37 +176,47 @@
             data: data,
             methods: {
                 login: function () {
-                    if (this.username) {
-                        this.loggedin = true;
+                    this.auth();
+                    return this.getAuthInfo().then(function () {
+                        if (this.username) {
+                            this.loggedin = true;
 
-                        this.log("Connecting...");
-                        // id in query map to the name in function, use like {query.userid}
-                        axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, null)
-                        .then(resp => resp.data)
-                        .then(info => {
-                            return info.url;
-                        }).catch(alert)
-                        .then(url => {
-                            var websocket = this.websocket = new WebSocket(url);
-                            websocket.onopen = e => {
-                                this.connected = true;
-                                console.log(websocket.protocol);
-                                this.log("Client websocket opened.");
-                            }
-                            websocket.onclose = e => {
-                                this.connected = false;
-                                this.log("Client websocket closed.");
-                            }
-                            websocket.onerror = e => {
-                                this.log("Client websocket error, check the Console window for details.");
-                            }
-                            websocket.onmessage = e => {
-                                if (!e.data) return;
-                                this.addMessageToView(e.data);
-                            }}).catch(err => {
-                                this.log("Error: " + err);
-                        });
-                    }
+                            this.log("Connecting...");
+                            // id in query map to the name in function, use like {query.userid}
+                            axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, null)
+                            .then(resp => resp.data)
+                            .then(info => {
+                                return info.url;
+                            }).catch(alert)
+                            .then(url => {
+                                var websocket = this.websocket = new WebSocket(url);
+                                websocket.onopen = e => {
+                                    this.connected = true;
+                                    console.log(websocket.protocol);
+                                    this.log("Client websocket opened.");
+                                }
+                                websocket.onclose = e => {
+                                    this.connected = false;
+                                    this.log("Client websocket closed.");
+                                }
+                                websocket.onerror = e => {
+                                    this.log("Client websocket error, check the Console window for details.");
+                                }
+                                websocket.onmessage = e => {
+                                    if (!e.data) return;
+                                    this.addMessageToView(e.data);
+                                }}).catch(err => {
+                                    this.log("Error: " + err);
+                            });
+                        }
+                    })
+                },
+                auth: function() {
+                    window.location.href = `${this.endpoint}/.auth/login/aad?post_login_redirect_url=${encodeURIComponent(window.location.href)}`;
+                },
+                getAuthInfo: function () {
+                    return axios.post(`${this.endpoint}/.auth/me`, null, axiosConfig)
+                        .then(() => this.authenticated = true, () => null);
                 },
                 sendNewMessage: function () {
                     if (!this.newMessage) {
@@ -241,7 +254,6 @@
                 }
             }
         });
-
     </script>
 </body>
 
