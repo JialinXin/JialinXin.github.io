@@ -177,7 +177,7 @@
             methods: {
                 login: function () {
                     this.auth();
-                    return this.getAuthInfo().then(function () {
+                    this.getAuthInfo().then(function () {
                         if (this.username) {
                             this.loggedin = true;
 
