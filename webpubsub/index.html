@@ -230,7 +230,7 @@
 
                     window.auth = {
                         token: authToken,
-                        loginUrl: `${this.endpoint}/.auth/login/.aad?session_mode=token&post_login_redirect_url=` + encodeURIComponent(window.location.href),
+                        loginUrl: `${this.endpoint}/.auth/login/aad?session_mode=token&post_login_redirect_url=` + encodeURIComponent(window.location.href),
                     }
                 },
                 getAxiosConfig() {
