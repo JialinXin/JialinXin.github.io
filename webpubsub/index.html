@@ -176,13 +176,6 @@
         const app = new Vue({
             el: '#app',
             data: data,
-            mounted: function() {
-                return this.getAuthInfo().then(function() {
-                    if (this.authenticated) {
-                        this.connect();
-                    }
-                }.bind(this));
-            },
             methods: {
                 connect: function () {
                     if (this.username) {
