@@ -192,7 +192,7 @@
                                 return resp.data;
                             })
                             .then(data => {
-                                var url = this.authToken != null ? `${data.baseUrl}?access_token=${this.authToken}` : `${data.url}`;
+                                var url = `${data.url}`;
                                 var websocket = this.websocket = new WebSocket(url);
                                 websocket.onopen = e => {
                                     this.connected = true;
