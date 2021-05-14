@@ -76,12 +76,13 @@
                     <label for="functionHost">Function Endpoint</label>
                     <input type="text" class="form-control" v-model="endpoint" id="functionEndpoint" placeholder="https://jixin-simplechat-linux.azurewebsites.net/">
                 </div>
+                <!--
                 <div class="form-group">
                     <label for="usernameInput">User</label>
                     <input type="text" class="form-control" v-model="username" id="usernameInput"
                         aria-describedby="usernameHelp" placeholder="Type your user name">
                     <small id="usernameHelp" class="form-text text-muted">The user name used to talk to others</small>
-                </div>
+                </div>-->
                 <button type="submit" class="btn btn-primary">Continue</button>
             </form>
         </div>
@@ -98,9 +99,6 @@
                     </template>
                 </div>
             </nav>
-            <template v-if="!authenticated">
-                <a href="#" class="m-3" v-on:click.prevent="auth">Login</a>
-            </template>
 
             <main role="main" class="col d-flex flex-column flex-nowrap p-md-4 p-2">
                 <h5>Chat on {{endpoint}}</h5>
@@ -143,6 +141,7 @@
             </main>
         </template>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -152,9 +151,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.18.0/dist/axios.min.js"></script>
+
     <script>
         function generateUser() {
             return 'User ' + Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5);
@@ -170,8 +169,7 @@
             newMessage: '',
             chat: { messages: [] },
             logs: [],
-            loggedin: true,
-            authenticated: false,
+            loggedin: window.auth && window.auth.token,
             connected: false,
             counter: 0
         };
@@ -181,50 +179,80 @@
             mounted: function() {
                 return this.getAuthInfo().then(function() {
                     if (this.authenticated) {
-                        this.login();
+                        this.connect();
                     }
-                });
+                }.bind(this));
             },
             methods: {
-                login: function () {
+                connect: function () {
                     if (this.username) {
                         this.log("Connecting...");
                         // id in query map to the name in function, use like {query.userid}
-                        var url = axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, null)
-                            .then(resp => resp.data.url)
+                        axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, getAuthInfo())
+                            .then(resp => {
+                                return resp.data.url;
+                            })
+                            .then(url => {
+                                var websocket = this.websocket = new WebSocket(url);
+                                websocket.onopen = e => {
+                                    this.connected = true;
+                                    console.log(websocket.protocol);
+                                    this.log("Client websocket opened.");
+                                }
+                                websocket.onclose = e => {
+                                    this.connected = false;
+                                    this.log("Client websocket closed.");
+                                }
+                                websocket.onerror = e => {
+                                    this.log("Client websocket error, check the Console window for details.");
+                                }
+                                websocket.onmessage = e => {
+                                    if (!e.data) return;
+                                    this.addMessageToView(e.data);
+                                };
+                            })
                             .catch(err => {
-                                this.log("Error: " + err)
+                                this.log("Error: " + err);
                             });
-                        var websocket = this.websocket = new WebSocket(url);
-                        websocket.onopen = e => {
-                            this.connected = true;
-                            console.log(websocket.protocol);
-                            this.log("Client websocket opened.");
-                        }
-                        websocket.onclose = e => {
-                            this.connected = false;
-                            this.log("Client websocket closed.");
-                        }
-                        websocket.onerror = e => {
-                            this.log("Client websocket error, check the Console window for details.");
-                        }
-                        websocket.onmessage = e => {
-                            if (!e.data) return;
-                            this.addMessageToView(e.data);
-                        };
                     }
                 },
-                auth: function() {
-                    window.location.href = `${this.endpoint}/.auth/login/aad?post_login_redirect_url=${encodeURIComponent(window.location.href)}`;
+                login: function() {
+                    window.location.href = window.auth.loginUrl;//`${this.endpoint}/.auth/login/aad?post_login_redirect_url=${encodeURIComponent(window.location.href)}`;
                 },
-                getAuthInfo: function () {
-                    return axios.post(`${this.endpoint}/.auth/me`, null, axiosConfig)
-                        .then(() => this.authenticated = true, () => null);
+                getAuthInfo() {
+                    let authToken = "";
+
+                    if (window.location.hash) {
+                        const match = window.location.hash.match(/\btoken=([^&]+)/);
+                        if (match && match[1]) {
+                        authToken = JSON.parse(decodeURIComponent(match[1])).authenticationToken;
+                        sessionStorage.setItem('authToken', authToken);
+                        history.pushState("", document.title, window.location.pathname + window.location.search);
+                        }
+                    }
+                    
+                    if (!authToken) {
+                        authToken = sessionStorage.getItem('authToken');
+                    }
+
+                    window.auth = {
+                        token: authToken,
+                        loginUrl: `${this.endpoint}/.auth/login/.aad?session_mode=token&post_login_redirect_url=` + encodeURIComponent(window.location.href),
+                    }
+                },
+                getAxiosConfig() {
+                    const config = {
+                        headers: {}
+                    };
+                    if (window.auth.token) {
+                        config.headers['X-ZUMO-AUTH'] = window.auth.token;
+                    }
+                    return config;
                 },
                 sendNewMessage: function () {
                     if (!this.connected)
                     {
-                        this.login();
+                        this.connect();
                     }
                     if (!this.newMessage) {
                         this.log("Error: empty message");
