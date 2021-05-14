@@ -98,6 +98,9 @@
                     </template>
                 </div>
             </nav>
+            <template v-if="!authenticated">
+                <a href="#" class="m-3" v-on:click.prevent="auth">Login</a>
+            </template>
 
             <main role="main" class="col d-flex flex-column flex-nowrap p-md-4 p-2">
                 <h5>Chat on {{endpoint}}</h5>
@@ -126,7 +129,7 @@
                         <div class="input-group">
                             <input type="text" v-model="newMessage" class="form-control" placeholder="Send a message">
                             <button type="submit" class="btn btn-outline-secondary col-2 col-md-1"
-                                :disabled="!newMessage || !connected">Send</button>
+                                :disabled="!newMessage">Send</button>
                         </div>
                     </form>
                 </div>
@@ -167,49 +170,49 @@
             newMessage: '',
             chat: { messages: [] },
             logs: [],
-            loggedin: false,
+            loggedin: true,
+            authenticated: false,
             connected: false,
             counter: 0
         };
         const app = new Vue({
             el: '#app',
             data: data,
+            mounted: function() {
+                return this.getAuthInfo().then(function() {
+                    if (this.authenticated) {
+                        this.login();
+                    }
+                });
+            },
             methods: {
                 login: function () {
-                    this.auth();
-                    this.getAuthInfo().then(function () {
-                        if (this.username) {
-                            this.loggedin = true;
-
-                            this.log("Connecting...");
-                            // id in query map to the name in function, use like {query.userid}
-                            axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, null)
-                            .then(resp => resp.data)
-                            .then(info => {
-                                return info.url;
-                            }).catch(alert)
-                            .then(url => {
-                                var websocket = this.websocket = new WebSocket(url);
-                                websocket.onopen = e => {
-                                    this.connected = true;
-                                    console.log(websocket.protocol);
-                                    this.log("Client websocket opened.");
-                                }
-                                websocket.onclose = e => {
-                                    this.connected = false;
-                                    this.log("Client websocket closed.");
-                                }
-                                websocket.onerror = e => {
-                                    this.log("Client websocket error, check the Console window for details.");
-                                }
-                                websocket.onmessage = e => {
-                                    if (!e.data) return;
-                                    this.addMessageToView(e.data);
-                                }}).catch(err => {
-                                    this.log("Error: " + err);
+                    if (this.username) {
+                        this.log("Connecting...");
+                        // id in query map to the name in function, use like {query.userid}
+                        var url = axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, null)
+                            .then(resp => resp.data.url)
+                            .catch(err => {
+                                this.log("Error: " + err)
                             });
+                        var websocket = this.websocket = new WebSocket(url);
+                        websocket.onopen = e => {
+                            this.connected = true;
+                            console.log(websocket.protocol);
+                            this.log("Client websocket opened.");
                         }
-                    })
+                        websocket.onclose = e => {
+                            this.connected = false;
+                            this.log("Client websocket closed.");
+                        }
+                        websocket.onerror = e => {
+                            this.log("Client websocket error, check the Console window for details.");
+                        }
+                        websocket.onmessage = e => {
+                            if (!e.data) return;
+                            this.addMessageToView(e.data);
+                        };
+                    }
                 },
                 auth: function() {
                     window.location.href = `${this.endpoint}/.auth/login/aad?post_login_redirect_url=${encodeURIComponent(window.location.href)}`;
@@ -219,6 +222,10 @@
                         .then(() => this.authenticated = true, () => null);
                 },
                 sendNewMessage: function () {
+                    if (!this.connected)
+                    {
+                        this.login();
+                    }
                     if (!this.newMessage) {
                         this.log("Error: empty message");
                         return;
