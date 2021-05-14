@@ -70,7 +70,7 @@
 <body>
     <div id="app" class="container-fluid h-100 d-flex flex-column flex-nowrap p-0">
         <div id="login" v-if="!loggedin" class="login">
-            <form v-on:submit.prevent="login()" class="bg-light p-3" style="width: 70%;">
+            <form v-on:submit.prevent="getAuthInfo()" class="bg-light p-3" style="width: 70%;">
                 <h5>Welcome to the Chatroom</h5>
                 <div class="form-group">
                     <label for="functionHost">Function Endpoint</label>
@@ -169,9 +169,10 @@
             newMessage: '',
             chat: { messages: [] },
             logs: [],
-            loggedin: window.auth && window.auth.token,
+            loggedin: this.authToken != null,
             connected: false,
-            counter: 0
+            counter: 0,
+            authToken: ''
         };
         const app = new Vue({
             el: '#app',
@@ -181,11 +182,12 @@
                     if (this.username) {
                         this.log("Connecting...");
                         // id in query map to the name in function, use like {query.userid}
-                        axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, getAuthInfo())
+                        axios.post(`${this.endpoint}/api/login?userid=${this.username}`, null, this.getAxiosConfig())
                             .then(resp => {
-                                return resp.data.url;
+                                return resp.data;
                             })
-                            .then(url => {
+                            .then(data => {
+                                var url = this.authToken != null ? `${data.baseUrl}?access_token=${this.authToken}` : `${data.url}`;
                                 var websocket = this.websocket = new WebSocket(url);
                                 websocket.onopen = e => {
                                     this.connected = true;
@@ -210,35 +212,38 @@
                     }
                 },
                 login: function() {
-                    window.location.href = window.auth.loginUrl;//`${this.endpoint}/.auth/login/aad?post_login_redirect_url=${encodeURIComponent(window.location.href)}`;
+                    window.location.href = `${this.endpoint}/.auth/login/aad?session_mode=token&post_login_redirect_url=` + encodeURIComponent(window.location.href);//`${this.endpoint}/.auth/login/aad?post_login_redirect_url=${encodeURIComponent(window.location.href)}`;
                 },
                 getAuthInfo() {
-                    let authToken = "";
+                    //let authToken = "";
 
                     if (window.location.hash) {
                         const match = window.location.hash.match(/\btoken=([^&]+)/);
                         if (match && match[1]) {
-                        authToken = JSON.parse(decodeURIComponent(match[1])).authenticationToken;
-                        sessionStorage.setItem('authToken', authToken);
+                        this.authToken = JSON.parse(decodeURIComponent(match[1])).authenticationToken;
+                        sessionStorage.setItem('authToken', this.authToken);
                         history.pushState("", document.title, window.location.pathname + window.location.search);
                         }
                     }
                     
-                    if (!authToken) {
-                        authToken = sessionStorage.getItem('authToken');
+                    if (!this.authToken) {
+                        this.authToken = sessionStorage.getItem('authToken');
                     }
-
-                    window.auth = {
-                        token: authToken,
-                        loginUrl: `${this.endpoint}/.auth/login/aad?session_mode=token&post_login_redirect_url=` + encodeURIComponent(window.location.href),
-                    }
+                    this.loggedin = true;
+                    this.connect();
+                    //window.location.reload();
+                    
+                    //window.auth = {
+                    //    token: authToken,
+                    //    loginUrl: `${this.endpoint}/.auth/login/aad?session_mode=token&post_login_redirect_url=` + encodeURIComponent(window.location.href),
+                    //}
                 },
                 getAxiosConfig() {
                     const config = {
                         headers: {}
                     };
-                    if (window.auth.token) {
-                        config.headers['X-ZUMO-AUTH'] = window.auth.token;
+                    if (this.authToken) {
+                        config.headers['X-ZUMO-AUTH'] = this.authToken;
                     }
                     return config;
                 },
